@@ -1,5 +1,5 @@
 //Matthew Julio, Esham Mahmud, Maddison Hicks-Kuskie
-//due DATE
+//due May 5
 //This is a connect 4 game that will display the hisoric wins to the user
 
 #include<stdio.h>
