@@ -6,66 +6,66 @@
 
 int main (void)
 {
-//NAME
+//Matthew
 	return 0;
 }
 
 void getMenuCoice (void)
 {
-//NAME
+//Esham
 	printf("");
 }
 
 void displayGame (void)
 {
-//NAME
+//Matthew
 
 }
 
 void checkForWin (void)
 {
-//NAME
+//Esham
 
 }
 
 void displayWins (void)
 {
-//NAME
+//Maddison
 
 }
 
 void turnTracker (void)
 {
-//NAME
+//Esham
 
 }
 
 void recordWin (void)
 {
-//NAME
+//Maddison
 
 }
 
 void getUserInput (void)
 {
-//NAME
+//Maddison
 	scanf("", );
 }
 
 void updateArray (void)
 {
-//NAME
+//Matthew
 
 }
 
 void verticalPosition (void)
 {
-//NAME
+//Matthew
 
 }
 
 void getPlayerNames (void)
 {
-//NAME
+//Esham
 
 }
