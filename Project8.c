@@ -1,4 +1,4 @@
-//Matthew Julio, Esham Mahmud, NAME
+//Matthew Julio, Esham Mahmud, Maddison Hicks-Kuskie
 //due DATE
 //This is a connect 4 game that will display the hisoric wins to the user
 
