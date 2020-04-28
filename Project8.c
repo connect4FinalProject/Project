@@ -6,16 +6,15 @@
 
 int main (void)
 {
-	
 	return 0;
 }
 
-void getMenCoice (void)
+void getMenuCoice (void)
 {
 	printf("");
 }
 
-void display (void)
+void displayGame (void)
 {
 
 }
@@ -50,9 +49,13 @@ void updateArray (void)
 
 }
 
-void hosiontalPosition (void)
+void verticalPosition (void)
 {
 
 }
 
+void getPlayerNames (void)
+{
+
+}
 
