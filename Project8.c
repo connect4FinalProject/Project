@@ -15,10 +15,22 @@
 #define scores.txt record
 #define maxTurns 49
 
+//previews
+int getMenuChoice (void);
+void displayGame (char game [] []);
+_BOOL checkForWin (char game [] []);
+void displayWins (FILE wins);
+_BOOL turnTracker (int turnTracker);
+void recordWin (FILE wins, char winnerName []);
+void getUserInput (int turnCounter);
+void updateArray (char game [] [], userInput);
+int verticalPositions (char game [] [], char x-position);
+void getPlayerNames (char player1 [], char player2 []);
+
 int main (void)
 {
 //Matthew
-	char player1 [maxName], player2 [maxName];
+	char player1 [maxName], player2 [maxName], game [7] [7]=' ';
 	_BOOL win=0;
 	int turnCounter=-1, menuChoice,;
 	FILE *wins;
@@ -31,7 +43,7 @@ int main (void)
 			{
 				do
 				{
-					displayGame;
+					displayGame (game);
 					getUserInput;
 					turnCounter++;
 					win=checkForWin;
@@ -71,7 +83,7 @@ void getMenuChoice (void)
 	printf("");
 }
 
-void displayGame (void)
+void displayGame (char game [] [])
 {
 //Matthew
 	printf("[1][2][3][4][5][6][7]\n");
@@ -115,19 +127,38 @@ void recordWin (void)
 void getUserInput (void)
 {
 //Maddison
+					//I will need the turn counter for update array to know which character to add.  Can you put that in with when you call the function? Matthew.
 	scanf("", );
 }
 
-void updateArray (void)
+void updateArray (char game [] [], int x, int turnCounter)
 {
 //Matthew
-
+	int y;
+	char xo;
+	y=verticalPostion(game, x);
+	if(y==-1)
+	{
+		return 0;
+	}
+	xo=turnTracker (trunCounter);
+	game [x] [y]=xo;
 }
 
-void verticalPosition (void)
+int verticalPosition (char game [] [], int x-position)
 {
+//if a -1 is returned, the move was invalid
 //Matthew
-
+	for (int i=0; i<=7; i++)
+	{
+		if (game [x-position] [i]==' ')
+		{
+			return i;
+			i=10;
+		}
+	}
+	printf("TEXT FOR IVALID MOVE");							//find out the text for an invalid move
+	return -1;
 }
 
 void getPlayerNames (void)
