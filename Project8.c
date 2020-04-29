@@ -3,9 +3,12 @@
 //This is a connect 4 game that will display the hisoric wins to the user
 
 //GENERAL NOTES
-//2D string "game" is the game board, folows game [x-coord] [y-coord] format	Read by: Matthew, 
-//files will be open when given to functions from main				Read by: Matthew, 
-//recordWin is the only funciton called in main					Read by: Matthew, 
+//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, 
+//files will be open when given to functions from main													Read by: Matthew, 
+//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, 
+//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, 
+//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, 
+
 
 #include<stdio.h>
 #define maxName 50
