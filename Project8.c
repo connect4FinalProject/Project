@@ -3,12 +3,14 @@
 //This is a connect 4 game that will display the hisoric wins to the user
 
 //GENERAL NOTES
-//2D string "game" is teh game board, folows game [x-coord] [y-coord] format
-//files will be open when given to functions from main
+//2D string "game" is the game board, folows game [x-coord] [y-coord] format	Read by: Matthew, 
+//files will be open when given to functions from main				Read by: Matthew, 
+//recordWin is the only funciton called in main					Read by: Matthew, 
 
 #include<stdio.h>
 #define maxName 50
 #define scores.txt record
+#define maxTurns 49
 
 int main (void)
 {
@@ -20,12 +22,27 @@ int main (void)
 	menuChoice=getMenuChoice;
 	do
 	{
-		turnCounter++;
 		switch(manuChoice)
 		{
 		case 1:
 			{
-				
+				do
+				{
+					displayGame;
+					getUserInput;
+					turnCounter++;
+					win=checkForWin;
+				}while(win==0 && turnCounter!=maxTurns)
+				if (win==1)
+				{
+					recordWin;
+				} else
+				{
+					if (turnCounter==maxTurns)
+					{
+						Prinf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");
+					}
+				}
 			}
 		case 2:
 			{
@@ -45,7 +62,6 @@ int main (void)
 	} while (menuChoice!=0)
 	return 0;
 }
-
 void getMenuChoice (void)
 {
 //Esham
