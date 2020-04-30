@@ -3,11 +3,12 @@
 //This is a connect 4 game that will display the hisoric wins to the user
 
 //GENERAL NOTES
-//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, 
-//files will be open when given to functions from main													Read by: Matthew, 
-//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, 
-//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, 
-//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, 
+//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, Esham
+//files will be open when given to functions from main													Read by: Matthew, Esham
+//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew,Esham
+//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, Esham
+	//There is no error message as far as I can tell, it only shows a blank line then shows the menu again.
+//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, Esham
 
 
 #include<stdio.h>
@@ -187,8 +188,29 @@ int verticalPosition (char game [] [], int x-position)
 	return -1;
 }
 
-void getPlayerNames (void)
+void getPlayerNames (char player1[], char player2[])
 {
 //Esham
+	int max;
+
+	printf("Player 1, enter your name: ");
+	getstr(max,player1);
+	printf("Player 2, enter your name: ");
+	getstr(max,player2);
+
+
+}
+
+void getstr(int max, char str[])
+{
+//Esham
+
+	int i = 0;
+
+	do{
+		str[i] = getchar();
+		i++
+	}while(i<max && str[i - 1] != '\n');
+	str[i - 1] = '\0';
 
 }
