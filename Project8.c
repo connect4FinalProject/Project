@@ -14,15 +14,15 @@
 #include<stdio.h>
 #include<string.h>
 #define maxName 50
-#define scores.txt record
+#define record "scores.txt"
 #define maxTurns 49
 
 //previews
 int getMenuChoice (void);
 void displayGame (char game [] []);
-bool checkForWinH (char game [] []);
-bool checkForWinV (char game [] []);
-bool checkForWinD (char game [] []);
+_BOOL checkForWinH (char game [] []);
+_BOOL checkForWinV (char game [] []);
+_BOOL checkForWinD (char game [] []);
 void displayWins (FILE wins, int);
 _BOOL turnTracker (int position);
 void recordWin (FILE wins, char winnerName []);
@@ -37,12 +37,12 @@ int main (void)
 //Matthew
 	char player1 [maxName], player2 [maxName], game [7] [7]=' ', winner [];
 	_BOOL win=0;
-	int turnCounter=-1, menuChoice,;
+	int turnCounter=-1, menuChoice;
 	FILE *wins;
 	menuChoice=getMenuChoice;
 	do
 	{
-		switch(manuChoice)
+		switch(menuChoice)
 		{
 		case 1:
 			{
@@ -52,23 +52,23 @@ int main (void)
 					getUserInput (turnCounter, game [] []);
 					turnCounter++;
 					win=checkForWin (game);
-				}while(win==0 && turnCounter!=maxTurns)
+				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
 					recordWin (win, winner []);
-				} else
+				}else
 				{
 					if (turnCounter==maxTurns)
 					{
-						Prinf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");
+						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");
 					}
 				}
 			}
 		case 2:
 			{
 				wins=fopen("record" "r");
-				displyWins(wins);
+				displayWins(wins);
 				fclose("wins");
 			}
 		case 0:
@@ -77,10 +77,10 @@ int main (void)
 			}
 		default:
 			{
-				prinf("Please enter a valid option!\n");
+				printf("Please enter a valid option!\n");
 			}
 		}
-	} while (menuChoice!=0)
+	} while (menuChoice!=0);
 	return 0;
 }
 int getMenuChoice (void)
@@ -104,7 +104,7 @@ void displayGame (char game [] [])
 	printf("---------------------\n");
 	for(int index=0; index!=7; index++)
 	{
-		for(int i=0; i!=7; I ++)
+		for(int i=0; i!=7; i++)
 		{
 			printf("[%s]", game [index] [i]);
 		}
@@ -114,19 +114,19 @@ void displayGame (char game [] [])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-bool checkForWinH (void)
+_BOOL checkForWinH (void)
 {
 //Esham
 
 }
 
-bool checkForWinV (void)
+_BOOL checkForWinV (void)
 {
 //Esham
 
 }
 
-bool checkForWinD (void)
+_BOOL checkForWinD (void)
 {
 //Esham
 
@@ -147,7 +147,7 @@ int score;
 	}
 }
 
-void turnTracker (void)
+_BOOL turnTracker (void)
 {
 //Esham
 
@@ -224,7 +224,7 @@ void getstr(int max, char str[])
 
 	do{
 		str[i] = getchar();
-		i++
+		i++;
 	}while(i<max && str[i - 1] != '\n');
 	str[i - 1] = '\0';
 
