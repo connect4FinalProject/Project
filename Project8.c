@@ -184,7 +184,7 @@ int verticalPosition (char game [] [], int x-position)
 			i=10;
 		}
 	}
-	printf("TEXT FOR IVALID MOVE");							//find out the text for an invalid move
+	printf("TEXT FOR IVALID MOVE");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: "
 	return -1;
 }
 
