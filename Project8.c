@@ -20,11 +20,11 @@
 //previews
 int getMenuChoice (void);
 void displayGame (char game [] []);
-_BOOL checkForWinH (char game [] []);
-_BOOL checkForWinV (char game [] []);
-_BOOL checkForWinD (char game [] []);
+_Bool checkForWinH (char game [] []);
+_Bool checkForWinV (char game [] []);
+_Bool checkForWinD (char game [] []);
 void displayWins (FILE wins, int);
-_BOOL turnTracker (int position);
+_Bool turnTracker (int position);
 void recordWin (FILE wins, char winnerName []);
 void getUserInput (int turnCounter, char game [] []);
 void updateArray (char game [] [], int userInput, int turnCounter);
@@ -36,7 +36,7 @@ int main (void)
 {
 //Matthew
 	char player1 [maxName], player2 [maxName], game [7] [7]=' ', winner [];
-	_BOOL win=0;
+	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
 	menuChoice=getMenuChoice;
@@ -114,19 +114,19 @@ void displayGame (char game [] [])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-_BOOL checkForWinH (void)
+_Bool checkForWinH (void)
 {
 //Esham
 
 }
 
-_BOOL checkForWinV (void)
+_Bool checkForWinV (void)
 {
 //Esham
 
 }
 
-_BOOL checkForWinD (void)
+_Bool checkForWinD (void)
 {
 //Esham
 
@@ -147,7 +147,7 @@ int score;
 	}
 }
 
-_BOOL turnTracker (void)
+_Bool turnTracker (void)
 {
 //Esham
 
