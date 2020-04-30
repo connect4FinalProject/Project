@@ -21,7 +21,7 @@ int getMenuChoice (void);
 void displayGame (char game [] []);
 _BOOL checkForWin (char game [] []);
 void displayWins (FILE wins, int);
-_BOOL turnTracker (int turnTracker);
+_BOOL turnTracker (int position);
 void recordWin (FILE wins, char winnerName []);
 void getUserInput (int turnCounter);
 void updateArray (char game [] [], int userInput, int turnCounter);
@@ -117,7 +117,7 @@ int score;
 
 	recordWin();
 
-	wins = fopen("scores.txt", "r");
+	//The file is opened in main. wins = fopen("scores.txt", "r");
 	for(int w = 0; w < numNames; w++){
 		printf("%c: %d", names[w], score);
 	}
@@ -132,7 +132,7 @@ void turnTracker (void)
 void recordWin (FILE* wins, char winnerName[])	//This function saves the player's names and corresponding scores to the scores.txt file. It stores the top ten scores and is sorted by highest order.
 {
 //Maddison
-	wins = fopen("scores.txt", "a"); //(write or append? - will it store all scores or just the scores from that round of games?)
+	//the file is opened in the main funciton.  wins = fopen("scores.txt", "a"); //(write or append? - will it store all scores or just the scores from that round of games?)
 	for(){
 		fprintf(wins,);
 }
