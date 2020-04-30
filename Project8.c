@@ -20,7 +20,9 @@
 //previews
 int getMenuChoice (void);
 void displayGame (char game [] []);
-_BOOL checkForWin (char game [] []);
+bool checkForWinH (char game [] []);
+bool checkForWinV (char game [] []);
+bool checkForWinD (char game [] []);
 void displayWins (FILE wins, int);
 _BOOL turnTracker (int position);
 void recordWin (FILE wins, char winnerName []);
@@ -112,7 +114,19 @@ void displayGame (char game [] [])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-void checkForWin (void)
+bool checkForWinH (void)
+{
+//Esham
+
+}
+
+bool checkForWinV (void)
+{
+//Esham
+
+}
+
+bool checkForWinD (void)
 {
 //Esham
 
