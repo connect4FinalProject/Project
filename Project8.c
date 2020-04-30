@@ -28,6 +28,7 @@ void getUserInput (int turnCounter, char game [] []);
 void updateArray (char game [] [], int userInput, int turnCounter);
 int verticalPositions (char game [] [], char x-position);
 void getPlayerNames (char player1 [], char player2 []);
+void getstr(int max, char str[]);
 
 int main (void)
 {
