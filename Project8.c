@@ -19,7 +19,7 @@
 int getMenuChoice (void);
 void displayGame (char game [] []);
 _BOOL checkForWin (char game [] []);
-void displayWins (FILE wins);
+void displayWins (FILE wins, int);
 _BOOL turnTracker (int turnTracker);
 void recordWin (FILE wins, char winnerName []);
 void getUserInput (int turnCounter);
@@ -106,10 +106,19 @@ void checkForWin (void)
 
 }
 
-void displayWins (void)
+void displayWins (FILE* wins, int numNames)	//Function scans scores.txt file for name and score and displays the information to the user's screen.
 {
 //Maddison
 
+char names[];
+int score;
+
+	recordWin();
+
+	wins = fopen("scores.txt", "r");
+	for(int w = 0; w < numNames; w++){
+		printf("%c: %d", names[w], score);
+	}
 }
 
 void turnTracker (void)
@@ -118,17 +127,24 @@ void turnTracker (void)
 
 }
 
-void recordWin (void)
+void recordWin (FILE* wins, char winnerName[])	//This function saves the player's names and corresponding scores to the scores.txt file. It stores the top ten scores and is sorted by highest order.
 {
 //Maddison
+	wins = fopen("scores.txt", "a"); //(write or append? - will it store all scores or just the scores from that round of games?)
+	for(){
+		fprintf(wins,);
+}
 
 }
 
-void getUserInput (void)
+void getUserInput (int position)
 {
 //Maddison
-					//I will need the turn counter for update array to know which character to add.  Can you put that in with when you call the function? Matthew.
-	scanf("", );
+char playerName;
+	printf("%c - Enter your move: ", playerName); 				//I will need the turn counter for update array to know which character to add.  Can you put that in with when you call the function? Matthew.
+	scanf("%d", &position);
+	updateArray();
+	turnTracker();
 }
 
 void updateArray (char game [] [], int x, int turnCounter)
