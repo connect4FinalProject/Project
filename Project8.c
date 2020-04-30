@@ -23,7 +23,7 @@ _BOOL checkForWin (char game [] []);
 void displayWins (FILE wins, int);
 _BOOL turnTracker (int position);
 void recordWin (FILE wins, char winnerName []);
-void getUserInput (int turnCounter);
+void getUserInput (int turnCounter, char game [] []);
 void updateArray (char game [] [], int userInput, int turnCounter);
 int verticalPositions (char game [] [], char x-position);
 void getPlayerNames (char player1 [], char player2 []);
@@ -45,9 +45,9 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (turnCounter);
+					getUserInput (turnCounter, game [] []);
 					turnCounter++;
-					win=checkForWin;
+					win=checkForWin (game);
 				}while(win==0 && turnCounter!=maxTurns)
 				if (win==1)
 				{
@@ -139,7 +139,7 @@ void recordWin (FILE* wins, char winnerName[])	//This function saves the player'
 
 }
 
-void getUserInput (int position)
+void getUserInput (int position, char game [] [])
 {
 //Maddison
 char playerName;
