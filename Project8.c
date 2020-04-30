@@ -11,6 +11,7 @@
 
 
 #include<stdio.h>
+#include<string.h>
 #define maxName 50
 #define scores.txt record
 #define maxTurns 49
@@ -23,14 +24,14 @@ void displayWins (FILE wins, int);
 _BOOL turnTracker (int turnTracker);
 void recordWin (FILE wins, char winnerName []);
 void getUserInput (int turnCounter);
-void updateArray (char game [] [], userInput);
+void updateArray (char game [] [], int userInput, int turnCounter);
 int verticalPositions (char game [] [], char x-position);
 void getPlayerNames (char player1 [], char player2 []);
 
 int main (void)
 {
 //Matthew
-	char player1 [maxName], player2 [maxName], game [7] [7]=' ';
+	char player1 [maxName], player2 [maxName], game [7] [7]=' ', winner [];
 	_BOOL win=0;
 	int turnCounter=-1, menuChoice,;
 	FILE *wins;
@@ -44,13 +45,14 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput;
+					getUserInput (turnCounter);
 					turnCounter++;
 					win=checkForWin;
 				}while(win==0 && turnCounter!=maxTurns)
 				if (win==1)
 				{
-					recordWin;
+					wins=fopen("record", "a");
+					recordWin (win, winner []);
 				} else
 				{
 					if (turnCounter==maxTurns)
@@ -157,7 +159,7 @@ void updateArray (char game [] [], int x, int turnCounter)
 	{
 		return 0;
 	}
-	xo=turnTracker (trunCounter);
+	xo=turnTracker (turnCounter);
 	game [x] [y]=xo;
 }
 
