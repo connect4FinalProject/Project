@@ -79,10 +79,18 @@ int main (void)
 	} while (menuChoice!=0)
 	return 0;
 }
-void getMenuChoice (void)
+int getMenuChoice (void)
 {
 //Esham
-	printf("");
+	int menuInput;
+
+	printf("***CONNECT 4***\n");
+	printf("1. Play Game\n");
+	printf("2. Show Scores\n");
+	printf("0. EXIT\n");
+	scanf("%d",&menuInput);
+
+	return menuInput;
 }
 
 void displayGame (char game [] [])
