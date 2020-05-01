@@ -116,7 +116,7 @@ void displayGame (char game [] [])
 
 _Bool checkForWinH (void)
 {
-//Esham
+//Eshamw
 
 }
 
@@ -139,9 +139,8 @@ void displayWins (FILE* wins, int numNames)	//Function scans scores.txt file for
 char names[];
 int score;
 
-	recordWin();
+	recordWin(wins, names[]);
 
-	//The file is opened in main. wins = fopen("scores.txt", "r");
 	for(int w = 0; w < numNames; w++){
 		printf("%c: %d", names[w], score);
 	}
@@ -156,10 +155,13 @@ _Bool turnTracker (void)
 void recordWin (FILE* wins, char winnerName[])	//This function saves the player's names and corresponding scores to the scores.txt file. It stores the top ten scores and is sorted by highest order.
 {
 //Maddison
-	//the file is opened in the main funciton.  wins = fopen("scores.txt", "a"); //(write or append? - will it store all scores or just the scores from that round of games?)
-	for(){
-		fprintf(wins,);
+int score, i, j;
+
+	for(int n = 0; n < ; n++){
+		fprintf(wins, "%c %d", winnerName[], score);
 }
+	//Bubble sort:
+	
 
 }
 
