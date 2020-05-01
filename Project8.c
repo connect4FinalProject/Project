@@ -5,7 +5,7 @@
 //GENERAL NOTES
 //2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, Esham
 //files will be open when given to functions from main													Read by: Matthew, Esham
-//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew,Esham
+//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, Esham
 //can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, Esham
 	//There is no error message as far as I can tell, it only shows a blank line then shows the menu again.
 //Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, Esham
@@ -19,23 +19,23 @@
 
 //previews
 int getMenuChoice (void);
-void displayGame (char game [] []);
-_Bool checkForWinH (char game [] []);
-_Bool checkForWinV (char game [] []);
-_Bool checkForWinD (char game [] []);
+void displayGame (char game[][]);
+_Bool checkForWinH (char game[][]);
+_Bool checkForWinV (char game[][]);
+_Bool checkForWinD (char game[][]);
 void displayWins (FILE wins, int);
 _Bool turnTracker (int position);
-void recordWin (FILE wins, char winnerName []);
-void getUserInput (int turnCounter, char game [] []);
-void updateArray (char game [] [], int userInput, int turnCounter);
-int verticalPositions (char game [] [], char x-position);
-void getPlayerNames (char player1 [], char player2 []);
+void recordWin (FILE wins, char winnerName[]);
+void getUserInput (int position, char game[][], int turnCounter);
+void updateArray (char game[][], int userInput, int turnCounter);
+int verticalPositions (char game[][], char x-position);
+void getPlayerNames (char player1[], char player2[]);
 void getstr(int max, char str[]);
 
 int main (void)
 {
 //Matthew
-	char player1 [maxName], player2 [maxName], game [7] [7]=' ', winner [];
+	char player1[maxName], player2[maxName], game[7][7]=' ', winner[maxName];
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
@@ -49,19 +49,19 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (turnCounter, game [] []);
+					getUserInput (turnCounter, game[][], turnCounter);
 					turnCounter++;
 					win=checkForWin (game);
 				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
-					recordWin (win, winner []);
+					recordWin (wins, winner[]);
 				}else
 				{
 					if (turnCounter==maxTurns)
 					{
-						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");
+						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");		//Can soemone find out what is printed if all turns are used up(all squares are full)
 					}
 				}
 			}
@@ -97,7 +97,7 @@ int getMenuChoice (void)
 	return menuInput;
 }
 
-void displayGame (char game [] [])
+void displayGame (char game[][])
 {
 //Matthew
 	printf("[1][2][3][4][5][6][7]\n");
@@ -133,6 +133,7 @@ _Bool checkForWinD (void)
 }
 
 void displayWins (FILE* wins, int numNames)	//Function scans scores.txt file for name and score and displays the information to the user's screen.
+						//Does it sort the displayed results?
 {
 //Maddison
 
@@ -165,17 +166,17 @@ int score, i, j;
 
 }
 
-void getUserInput (int position, char game [] [])
+void getUserInput (int position, char game[][], int turnCounter)
 {
 //Maddison
 char playerName;
 	printf("%c - Enter your move: ", playerName); 				//I will need the turn counter for update array to know which character to add.  Can you put that in with when you call the function? Matthew.
 	scanf("%d", &position);
-	updateArray();
-	turnTracker();
+	updateArray(game, position, turnCounter);
+	turnTracker();								//Why is turn tracker called here?
 }
 
-void updateArray (char game [] [], int x, int turnCounter)
+void updateArray (char game[][], int x, int turnCounter)
 {
 //Matthew
 	int y;
@@ -186,22 +187,22 @@ void updateArray (char game [] [], int x, int turnCounter)
 		return 0;
 	}
 	xo=turnTracker (turnCounter);
-	game [x] [y]=xo;
+	game[x][y]=xo;
 }
 
-int verticalPosition (char game [] [], int x-position)
+int verticalPosition (char game[][], int Xposition)
 {
 //if a -1 is returned, the move was invalid
 //Matthew
 	for (int i=0; i<=7; i++)
 	{
-		if (game [x-position] [i]==' ')
+		if (game[Xposition][i]==' ')
 		{
 			return i;
 			i=10;
 		}
 	}
-	printf("TEXT FOR IVALID MOVE");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: "
+	printf("Please enter a valid move: ");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: ""Please enter a valid move: "; than you.
 	return -1;
 }
 
