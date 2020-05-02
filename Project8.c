@@ -142,7 +142,7 @@ void displayWins (FILE* wins, int numNames)
 char names[];
 int score;
 
-	recordWin(wins, names[]);
+	fscanf(wins, "%c %d", &names[], &score);
 
 	for(int w = 0; w < numNames; w++){
 		printf("%c: %d", names[w], score);
@@ -168,7 +168,7 @@ char name;
 }
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
-	fscanf("%c %d", array[i]); 		//I'm not quite sure how to use 2d arrays very well so please let me know if in any of my functions need one and what variables should go inside if you can -MH
+	fscanf("%c %d", &array[i]); 		//I'm not quite sure how to use 2d arrays very well so please let me know if in any of my functions need one and what variables should go inside if you can -MH
 	}
 	for(i = 0; i < 10 - 1; c++){
 		for(j = 0; j < n - i - 1){
