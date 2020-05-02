@@ -16,7 +16,6 @@
 #define maxName 50
 #define record "scores.txt"
 #define maxTurns 49
-#define size 7
 
 //previews
 int getMenuChoice (void);
@@ -36,7 +35,7 @@ void getstr(int max, char str[]);
 int main (void)
 {
 //Matthew
-	char player1[maxName], player2[maxName], game[size][size], winner[maxName];
+	char player1[maxName], player2[maxName], game[maxTurns][1], winner[maxName];			//fundamental misunderstanding of how char array works
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
@@ -49,15 +48,15 @@ int main (void)
 			{
 				do
 				{
-					displayGame (game);
-					getUserInput (turnCounter, game[][], turnCounter);
+					displayGame (game []);
+					getUserInput (turnCounter, game [], turnCounter);
 					turnCounter++;
-					win=checkForWin (game);
+					win=checkForWin (game []);
 				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
-					recordWin (wins, winner[]);
+					recordWin (wins, winner []);
 				}else
 				{
 					if (turnCounter==maxTurns)
