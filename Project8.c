@@ -61,7 +61,8 @@ int main (void)
 				{
 					if (turnCounter==maxTurns)
 					{
-						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");		//Can soemone find out what is printed if all turns are used up(all squares are full)
+						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");		//Can soemone find out what is printed if all turns are used up(all squares are full); Esham: It says "It's a tie! Try again...",
+																						//Then in the next line it says "Play again? 1 - yes: "
 					}
 				}
 			}
