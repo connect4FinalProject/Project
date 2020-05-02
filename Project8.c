@@ -35,7 +35,8 @@ void getstr(int max, char str[]);
 int main (void)
 {
 //Matthew
-	char player1[maxName], player2[maxName], game[maxTurns][1], winner[maxName];			//fundamental misunderstanding of how char array works
+	char game [size] [size+1] {       }{       }{       }{       }{       }{       }{       };
+	char player1[maxName], player2[maxName], winner[maxName];			//fundamental misunderstanding of how char array works
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
