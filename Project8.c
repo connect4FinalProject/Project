@@ -133,15 +133,15 @@ _Bool checkForWinD (void)
 
 }
 
-void displayWins (FILE* wins, int numNames)	//Function scans scores.txt file for name and score and displays the information to the user's screen.
-						//Does it sort the displayed results?
+void displayWins (FILE* wins, int numNames)
+						//Does it sort the displayed results? - it does that in recordWin within the file. Assuming I'm doing what the design document says for the function.
 {
 //Maddison
-
+//Function scans scores.txt file for name and score then displayes the informations to the user's screen.
 char names[];
 int score;
 
-	recordWin(wins, names[]);
+	fscanf(wins, "%c %d", &names[], &score);
 
 	for(int w = 0; w < numNames; w++){
 		printf("%c: %d", names[w], score);
@@ -154,27 +154,41 @@ _Bool turnTracker (void)
 
 }
 
-void recordWin (FILE* wins, char winnerName[])	//This function saves the player's names and corresponding scores to the scores.txt file. It stores the top ten scores and is sorted by highest order.
+void recordWin (FILE* wins, char winnerName[][])
 {
 //Maddison
-int score, i, j;
+//This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
+int score, array[], i, j, swap;
+char name;
 
+	//Saving win to file:
 	for(int n = 0; n < ; n++){
-		fprintf(wins, "%c %d", winnerName[], score);
+		fprintf(wins, "%c %d", winnerName[][], score);  	//I'm not quite sure what should go in the arrays. If anyone could give me tips it'd be appreciated. -Maddison
 }
 	//Bubble sort:
-	
+	for(i = 0; i < 10; i++){
+	fscanf("%c %d", &array[i]); 		//I'm not quite sure how to use 2d arrays very well so please let me know if in any of my functions need one and what variables should go inside if you can -MH
+	}
+	for(i = 0; i < 10 - 1; c++){
+		for(j = 0; j < n - i - 1){
+			if(array[j] > array[j+1]){
+			swap = array[j];
+			array[j] = array[j+1];
+			array[j+1] = swap;
+		}
+		}
+	}
 
 }
 
 void getUserInput (int position, char game[][], int turnCounter)
 {
 //Maddison
+//This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
 char playerName;
-	printf("%c - Enter your move: ", playerName); 				//I will need the turn counter for update array to know which character to add.  Can you put that in with when you call the function? Matthew.
+	printf("%c - Enter your move: ", playerName);		//Is there anything else I need to do for this function? I'm a little stuck and wouldn't mind some advice - Maddison
 	scanf("%d", &position);
-	updateArray(game, position, turnCounter);
-	turnTracker();								//Why is turn tracker called here?
+	updateArray(game[][], position, turnCounter);
 }
 
 void updateArray (char game[][], int x, int turnCounter)
