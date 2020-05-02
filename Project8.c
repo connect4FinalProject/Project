@@ -16,8 +16,9 @@
 #define maxName 50
 #define record "scores.txt"
 #define maxTurns 49
+#define size 7
 
-//previews
+previews
 int getMenuChoice (void);
 void displayGame (char game[][]);
 _Bool checkForWinH (char game[][]);
@@ -62,8 +63,7 @@ int main (void)
 				{
 					if (turnCounter==maxTurns)
 					{
-						printf("INSERT LOOSING/RUN OUT OF TURNS STATEMENT HERE");		//Can soemone find out what is printed if all turns are used up(all squares are full); Esham: It says "It's a tie! Try again...",
-																						//Then in the next line it says "Play again? 1 - yes: "
+						printf("It's a tie! Try again...\nPlay again? 1 - yes: ");
 					}
 				}
 			}
@@ -99,7 +99,7 @@ int getMenuChoice (void)
 	return menuInput;
 }
 
-void displayGame (char game[][])
+void displayGame (char game[])
 {
 //Matthew
 	printf("[1][2][3][4][5][6][7]\n");
@@ -108,7 +108,7 @@ void displayGame (char game[][])
 	{
 		for(int i=0; i!=7; i++)
 		{
-			printf("[%s]", game [index] [i]);
+			printf("[%s]", game [index]);
 		}
 		printf("\n");
 	}
