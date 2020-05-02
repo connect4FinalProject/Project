@@ -16,6 +16,7 @@
 #define maxName 50
 #define record "scores.txt"
 #define maxTurns 49
+#define size 7
 
 //previews
 int getMenuChoice (void);
@@ -35,7 +36,7 @@ void getstr(int max, char str[]);
 int main (void)
 {
 //Matthew
-	char player1[maxName], player2[maxName], game[7][7]=' ', winner[maxName];
+	char player1[maxName], player2[maxName], game[size][size], winner[maxName];
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
