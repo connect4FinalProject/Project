@@ -20,23 +20,30 @@
 
 previews
 int getMenuChoice (void);
-void displayGame (char game[][]);
-_Bool checkForWinH (char game[][]);
-_Bool checkForWinV (char game[][]);
-_Bool checkForWinD (char game[][]);
+void displayGame (char game[][size+1]);
+_Bool checkForWinH (char game[][size+1]);
+_Bool checkForWinV (char game[][size+1]);
+_Bool checkForWinD (char game[][size+1]);
 void displayWins (FILE* wins);
 _Bool turnTracker (int position);
 void recordWin (FILE* wins, char winnerName[]);
-void getUserInput (char game[][], int turnCounter);
-void updateArray (char game[][], int userInput, int turnCounter);
-int verticalPositions (char game[][], char x-position);
+void getUserInput (char game[][size+1], int turnCounter);
+void updateArray (char game[][size+1], int userInput, int turnCounter);
+int verticalPositions (char game[][size+1], char x-position);
 void getPlayerNames (char player1[], char player2[]);
 void getstr(int max, char str[]);
 
 int main (void)
 {
 //Matthew
-	char game [size] [size+1] {       }{       }{       }{       }{       }{       }{       };
+	char game [size] [size+1]
+	for (int i=0; i<size; i++)
+	{
+		for(int index=0; index<size+1; index++)
+		{
+			game [i] [index]=' ';
+		}
+	}
 	char player1[maxName], player2[maxName], winner[maxName];			//fundamental misunderstanding of how char array works
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
@@ -50,18 +57,18 @@ int main (void)
 			{
 				do
 				{
-					displayGame (game []);
-					getUserInput (turnCounter, game [], turnCounter);
+					displayGame (game);
+					getUserInput (turnCounter, game, turnCounter);
 					turnCounter++;
-					win=checkForWin (game []);
+					win=checkForWin (game);
 				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
-					recordWin (wins, winner []);
+					recordWin (wins, winner);
 				}else
 				{
-					if (turnCounter==maxTurns)
+					if (turnCounter>=maxTurns)
 					{
 						printf("It's a tie! Try again...\nPlay again? 1 - yes: ");
 					}
@@ -99,16 +106,18 @@ int getMenuChoice (void)
 	return menuInput;
 }
 
-void displayGame (char game[])
+void displayGame (char game[] [size+1])
 {
 //Matthew
+	char temp;
 	printf("[1][2][3][4][5][6][7]\n");
 	printf("---------------------\n");
-	for(int index=0; index!=7; index++)
+	for(int index=0; index<size; index++)
 	{
-		for(int i=0; i!=7; i++)
+		for(int i=0; i<size; i++)
 		{
-			printf("[%s]", game [index]);
+			temp=game [index][i];
+			printf("[%c]", temp);
 		}
 		printf("\n");
 	}
@@ -137,7 +146,7 @@ _Bool checkForWinD (void)
 void displayWins (FILE* wins)
 						//Does it sort the displayed results? - it does that in recordWin within the file. Assuming I'm doing what the design document says for the function.
 {
-//Maddison
+//Maddison+
 //Function scans scores.txt file for name and score then displayes the informations to the user's screen.
 char names[];
 int score[];
@@ -155,7 +164,7 @@ _Bool turnTracker (void)
 
 }
 
-void recordWin (FILE* wins, char winnerName[][])
+void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
@@ -182,7 +191,7 @@ char name;
 
 }
 
-void getUserInput (char game[][], int turnCounter)	//do i need turnCounter? it says so in the design document but I don't see why.
+void getUserInput (char game[][size+1], int turnCounter)	//do i need turnCounter? it says so in the design document but I don't see why.
 {
 //Maddison
 //This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
@@ -190,10 +199,10 @@ char playerName;
 int chosenNum, i;
 	printf("%c - Enter your move: ", playerName);		//Is there anything else I need to do for this function? I'm a little stuck and wouldn't mind some advice - Maddison
 	scanf("%d", game[chosenNum][i]);
-	updateArray(game[][], position, turnCounter);
+	updateArray(game, position, turnCounter);
 }
 
-void updateArray (char game[][], int x, int turnCounter)
+void updateArray (char game[][size+1], int x, int turnCounter)
 {
 //Matthew
 	int y;
@@ -207,7 +216,7 @@ void updateArray (char game[][], int x, int turnCounter)
 	game[x][y]=xo;
 }
 
-int verticalPosition (char game[][], int Xposition)
+int verticalPosition (char game[][size+1], int Xposition)
 {
 //if a -1 is returned, the move was invalid
 //Matthew
