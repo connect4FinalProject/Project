@@ -145,7 +145,7 @@ int score[];
 	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
 
 	for(int w = 0; w < numNames; w++){
-		printf("%c: %d", names[w], score);
+		printf("%c: %d", names[w], score[w]);
 	}
 }
 
