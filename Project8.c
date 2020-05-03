@@ -3,12 +3,12 @@
 //This is a connect 4 game that will display the hisoric wins to the user
 
 //GENERAL NOTES
-//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, Esham
-//files will be open when given to functions from main													Read by: Matthew, Esham
-//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, Esham
-//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, Esham
+//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, Esham, Maddi
+//files will be open when given to functions from main													Read by: Matthew, Esham, Maddi
+//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, Esham, Maddi
+//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, Esham, Maddi
 	//There is no error message as far as I can tell, it only shows a blank line then shows the menu again.
-//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, Esham
+//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, Esham, Maddi
 
 
 #include<stdio.h>
@@ -24,10 +24,10 @@ void displayGame (char game[][]);
 _Bool checkForWinH (char game[][]);
 _Bool checkForWinV (char game[][]);
 _Bool checkForWinD (char game[][]);
-void displayWins (FILE wins, int);
+void displayWins (FILE* wins);
 _Bool turnTracker (int position);
-void recordWin (FILE wins, char winnerName[]);
-void getUserInput (int position, char game[][], int turnCounter);
+void recordWin (FILE* wins, char winnerName[]);
+void getUserInput (char game[][], int turnCounter);
 void updateArray (char game[][], int userInput, int turnCounter);
 int verticalPositions (char game[][], char x-position);
 void getPlayerNames (char player1[], char player2[]);
@@ -134,15 +134,15 @@ _Bool checkForWinD (void)
 
 }
 
-void displayWins (FILE* wins, int numNames)
+void displayWins (FILE* wins)
 						//Does it sort the displayed results? - it does that in recordWin within the file. Assuming I'm doing what the design document says for the function.
 {
 //Maddison
 //Function scans scores.txt file for name and score then displayes the informations to the user's screen.
 char names[];
-int score;
+int score[];
 
-	fscanf(wins, "%c %d", &names[], &score);
+	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
 
 	for(int w = 0; w < numNames; w++){
 		printf("%c: %d", names[w], score);
@@ -159,16 +159,16 @@ void recordWin (FILE* wins, char winnerName[][])
 {
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
-int score, array[], i, j, swap;
+int score[][], array[], i, j, swap;
 char name;
 
 	//Saving win to file:
 	for(int n = 0; n < ; n++){
-		fprintf(wins, "%c %d", winnerName[][], score);  	//I'm not quite sure what should go in the arrays. If anyone could give me tips it'd be appreciated. -Maddison
+		fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
 }
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
-	fscanf("%c %d", &array[i]); 		//I'm not quite sure how to use 2d arrays very well so please let me know if in any of my functions need one and what variables should go inside if you can -MH
+	fscanf("%c %d", &name, &array[i]);
 	}
 	for(i = 0; i < 10 - 1; c++){
 		for(j = 0; j < n - i - 1){
@@ -182,13 +182,14 @@ char name;
 
 }
 
-void getUserInput (int position, char game[][], int turnCounter)
+void getUserInput (char game[][], int turnCounter)	//do i need turnCounter? it says so in the design document but I don't see why.
 {
 //Maddison
 //This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
 char playerName;
+int chosenNum, i;
 	printf("%c - Enter your move: ", playerName);		//Is there anything else I need to do for this function? I'm a little stuck and wouldn't mind some advice - Maddison
-	scanf("%d", &position);
+	scanf("%d", game[chosenNum][i]);
 	updateArray(game[][], position, turnCounter);
 }
 
