@@ -33,7 +33,7 @@ int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
 void getUserInput (char game[][size+1], int turnCounter);
 void updateArray (char game[][size+1], int userInput, int turnCounter);
-int verticalPositions (char game[][size+1], char Xposition);
+int verticalPosition (char game[][size+1], char Xposition);
 void getPlayerNames (char player1[], char player2[]);
 void getstr(int max, char str[]);
 
