@@ -264,11 +264,6 @@ int checkForWinDDownRight (char game[][size+1])
 
 		}
 	}
-	if(count >= 4){
-		return true;
-	}else{
-		return false;
-	}
 return win;
 }
 
