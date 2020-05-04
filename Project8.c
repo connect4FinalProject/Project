@@ -450,11 +450,6 @@ void displayWins (FILE* wins)
 char names[11];
 int score[11];
 
-=======
-char names[];
-int score[];
-//check the deom file.  The print statment cannot print strings like this.  You need  loop.
->>>>>>> c70929ef7c9e9cabbf131af8086bea75422bdd1e
 	for(int a = 0; a < 11; a++){
 	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
 	}
@@ -481,10 +476,10 @@ void recordWin (FILE* wins, char winnerName[])
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
 int max = 20, score[11][2], array[max], i, j, swap, n;
-char name;
+char name, maxName = 50;
 
 	//Saving win to file:
-	for(int n = 0; n < ; n++){
+	for(int n = 0; n < 10 ; n++){
 		fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
 }
 	//Bubble sort:
@@ -508,11 +503,11 @@ void getUserInput (char game[][size+1], int turnCounter)
 //Maddison
 //This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
 char playerName;
-int chosenNum, i;
+int chosenNum, i, position;
 	printf("%c - Enter your move: ", playerName);
-<<<<<<< HEAD
+
 	scanf("%c", game[][chosenNum]);
-	updateArray(game[][], position, turnCounter);
+	updateArray(game[][size+1], position, turnCounter);
 
 }
 
