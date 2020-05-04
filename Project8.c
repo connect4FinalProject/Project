@@ -454,8 +454,9 @@ char names[];
 int score[];
 //check the deom file.  The print statment cannot print strings like this.  You need  loop.
 >>>>>>> c70929ef7c9e9cabbf131af8086bea75422bdd1e
+	for(int a = 0; a < 11; a++){
 	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
-
+	}
 	for(int w = 0; w < 10; w++){
 		printf("%c: %d", names[w], score[w]);
 	}
@@ -511,11 +512,7 @@ int chosenNum, i;
 <<<<<<< HEAD
 	scanf("%c", game[][chosenNum]);
 	updateArray(game[][], position, turnCounter);
-=======
-	//The character array will nt work with this scan statment
-	scanf("%d", game[chosenNum][i]);
-	updateArray(game, position, turnCounter);
->>>>>>> c70929ef7c9e9cabbf131af8086bea75422bdd1e
+
 }
 
 void updateArray (char game[][size+1], int x, int turnCounter)
