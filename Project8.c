@@ -21,13 +21,13 @@
 //previews
 int getMenuChoice (void);
 void displayGame (char game[][size+1]);
-_Bool checkForWinH (char game[][size+1]);
-_Bool checkForWinV (char game[][size+1]);
-_Bool checkForWinDDownRight (char game[][size+1]);
-_Bool checkForWinDUpRight (char game[][size+1]);
-_Bool checkForWinDDownLeft (char game[][size+1]);
-_Bool checkForWinDUpLeft (char game[][size+1]);
-_Bool checkForWins (char game[][size+1]);
+int checkForWinH (char game[][size+1]);
+int checkForWinV (char game[][size+1]);
+int checkForWinDDownRight (char game[][size+1]);
+int checkForWinDUpRight (char game[][size+1]);
+int checkForWinDDownLeft (char game[][size+1]);
+int checkForWinDUpLeft (char game[][size+1]);
+int checkForWins (char game[][size+1]);
 void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
@@ -131,10 +131,12 @@ void displayGame (char game[] [size+1])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-_Bool checkForWinH (char game[][size+1])
+int checkForWinH (char game[][size+1])
 {
 //Esham
+// 1 = win 0 = no win
 	int x,y,count;
+	int win = 0;
 	count = 1;
 	x = 0;
 	y = 0;
@@ -143,7 +145,8 @@ _Bool checkForWinH (char game[][size+1])
 		if(game[x][y] == game[x][y+1] && y != 6)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				count++;
 				y++;	
@@ -151,7 +154,8 @@ _Bool checkForWinH (char game[][size+1])
 		}else if(game[x][y] != game[x][y+1] && y != 6)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				count = 1;
 				y++;		
@@ -160,24 +164,23 @@ _Bool checkForWinH (char game[][size+1])
 		}else if(y == 6)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				x++;
 				y = 0;		
 			}
 		}
 	}
-	if(count >= 4){
-		return true;
-	}else{
-		return false;
-	}
+return win;
 }
 
-_Bool checkForWinV (char game[][size+1])
+int checkForWinV (char game[][size+1])
 {
 //Esham
+// 1 = win 0 = no win
 	int x,y,count;
+	int win = 0;
 	count = 1;
 	x = 0;
 	y = 0;
@@ -186,7 +189,8 @@ _Bool checkForWinV (char game[][size+1])
 		if(game[x][y] == game[x+1][y] && y != 3)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				count++;
 				y++;		
@@ -195,7 +199,8 @@ _Bool checkForWinV (char game[][size+1])
 		}else if(game[x][y] != game[x+1][y] && y != 3)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				count = 1;
 				y++;	
@@ -203,24 +208,23 @@ _Bool checkForWinV (char game[][size+1])
 		}else if(y == 3)
 		{
 			if(count >= 4){
-				i = 4;
+				x = 7;
+				win = 1;
 			}else{
 				x++;
 				y = 0;		
 			}
 		}
 	}
-	if(count >= 4){
-		return true;
-	}else{
-		return false;
-	}
+return win;
 }
 
-_Bool checkForWinDDownRight (char game[][size+1])
+int checkForWinDDownRight (char game[][size+1])
 {
 //Esham
+// 1 = win 0 = no win
 	int x,y,count,i;
+	int win = 0;
 	count = 1;
 	x = 0;
 	y = 0;
@@ -231,6 +235,7 @@ _Bool checkForWinDDownRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				count++;
 				y++;
@@ -240,6 +245,7 @@ _Bool checkForWinDDownRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				count = 1;
 				y++;
@@ -249,6 +255,7 @@ _Bool checkForWinDDownRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				i++;
 				y = 0;
@@ -263,12 +270,15 @@ _Bool checkForWinDDownRight (char game[][size+1])
 	}else{
 		return false;
 	}
+return win;
 }
 
-_Bool checkForWinDUpRight (char game[][size+1])
+int checkForWinDUpRight (char game[][size+1])
 {
 //Esham
+// 1 = win 0 = no win
 	int x,y,count,i;
+	int win = 0;
 	count = 1;
 	x = 6;
 	y = 0;
@@ -279,6 +289,7 @@ _Bool checkForWinDUpRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				count++;
 				y++;
@@ -288,6 +299,7 @@ _Bool checkForWinDUpRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				count = 1;
 				y++;
@@ -297,6 +309,7 @@ _Bool checkForWinDUpRight (char game[][size+1])
 		{
 			if(count >= 4){
 				i = 4;
+				win = 1;
 			}else{
 				i++;
 				y = 0;
@@ -306,28 +319,111 @@ _Bool checkForWinDUpRight (char game[][size+1])
 
 		}
 	}
-	if(count >= 4){
-		return true;
-	}else{
-		return false;
+return win;
+}
+
+int checkForWinDDownLeft (char game[][size+1])
+{
+//Esham
+// 1 = win 0 = no win
+	int x,y,count,i;
+	int win = 0;
+	count = 1;
+	x = 0;
+	y = 6;
+	i = 0;
+	while(i != 4)
+	{
+		if(game[x+i][y] == game[x+i+1][y+1] && y != 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count++;
+				y--;
+				x++;		
+			}
+		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y--;
+				x++;
+			}
+		}else if(y == 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				i++;
+				y = 6;
+				x = 0;
+				count = 1;
+			}
+
+		}
 	}
+return win;
 }
 
-_Bool checkForWinDDownLeft (char game[][size+1])
+int checkForWinDUpLeft (char game[][size+1])
 {
 //Esham
+// 1 = win 0 = no win
+	int x,y,count,i;
+	int win = 0;
+	count = 1;
+	x = 6;
+	y = 6;
+	i = 0;
+	while(i != 4)
+	{
+		if(game[x-i][y] == game[x-i-1][y-1] && y != 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count++;
+				y--;
+				x--;		
+			}
+		}else if(game[x-i][y] != game[x-i-1][y-1] && y != 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y--;
+				x--;
+			}
+		}else if(y == 2)
+		{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				i++;
+				y = 6;
+				x = 6;
+				count = 1;
+			}
 
+		}
+	}
+return win;
 }
 
-_Bool checkForWinDUpLeft (char game[][size+1])
+int checkForWins (char game[][size+1])
 {
 //Esham
-
-}
-
-_Bool checkForWins (char game[][size+1])
-{
-//Esham
+	int win;
 
 }
 
