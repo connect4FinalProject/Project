@@ -447,12 +447,12 @@ void displayWins (FILE* wins)
 {
 //Maddison+
 //Function scans scores.txt file for name and score then displayes the informations to the user's screen.
-char names[];
-int score[];
+char names[11];
+int score[11];
 
 	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
 
-	for(int w = 0; w < numNames; w++){
+	for(int w = 0; w < 10; w++){
 		printf("%c: %d", names[w], score[w]);
 	}
 }
@@ -474,7 +474,7 @@ void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
-int score[][], array[], i, j, swap;
+int max = 20, score[11][2], array[max], i, j, swap, n;
 char name;
 
 	//Saving win to file:
@@ -483,10 +483,10 @@ char name;
 }
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
-	fscanf("%c %d", &name, &array[i]);
+	fscanf(wins, "%c %d", &name, &array[i]);
 	}
-	for(i = 0; i < 10 - 1; c++){
-		for(j = 0; j < n - i - 1){
+	for(i = 0; i < 10 - 1; i++){
+		for(j = 0; j < 10 - i - 1; j++){
 			if(array[j] > array[j+1]){
 			swap = array[j];
 			array[j] = array[j+1];
@@ -504,8 +504,8 @@ void getUserInput (char game[][size+1], int turnCounter)
 char playerName;
 int chosenNum, i;
 	printf("%c - Enter your move: ", playerName);
-	scanf("%d", game[chosenNum][i]);
-	updateArray(game, position, turnCounter);
+	scanf("%c", game[][chosenNum]);
+	updateArray(game[][], position, turnCounter);
 }
 
 void updateArray (char game[][size+1], int x, int turnCounter)
