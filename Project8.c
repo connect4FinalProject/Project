@@ -423,8 +423,23 @@ return win;
 int checkForWins (char game[][size+1])
 {
 //Esham
-	int win;
-
+	int win = 0;
+	if(checkForWinH(game) == 1){
+		win = 1;
+	}else if(checkForWinV(game) == 1){
+		win = 1;
+	}else if(checkForWinDDownLeft(game) == 1){
+		win = 1;
+	}else if(checkForWinDDownRight(game) == 1){
+		win = 1;
+	}else if(checkForWinDUpLeft(game) == 1){
+		win = 1;
+	}else if(checkForWinDUpRight(game) == 1){
+		win = 1;
+	}else{
+		win = 0;
+	}
+return win;
 }
 
 void displayWins (FILE* wins)
