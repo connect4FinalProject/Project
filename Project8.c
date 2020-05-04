@@ -18,14 +18,14 @@
 #define maxTurns 49
 #define size 7
 
-previews
+//previews
 int getMenuChoice (void);
 void displayGame (char game[][size+1]);
 _Bool checkForWinH (char game[][size+1]);
 _Bool checkForWinV (char game[][size+1]);
 _Bool checkForWinD (char game[][size+1]);
 void displayWins (FILE* wins);
-_Bool turnTracker (int position);
+int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
 void getUserInput (char game[][size+1], int turnCounter);
 void updateArray (char game[][size+1], int userInput, int turnCounter);
@@ -158,10 +158,17 @@ int score[];
 	}
 }
 
-_Bool turnTracker (void)
+int turnTracker (int turnCounter)
 {
 //Esham
+	int turn;
+	if (turnNum % 2 == 0){
+		turn = 1;
+	}else{
+		turn = 0;
+	}
 
+	return turn;
 }
 
 void recordWin (FILE* wins, char winnerName[])
