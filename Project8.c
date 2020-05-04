@@ -70,6 +70,7 @@ int main (void)
 				{
 					wins=fopen("record", "a");
 					recordWin (wins, winner);
+					fclose(wins);
 				}else
 				{
 					if (turnCounter>=maxTurns)
@@ -82,7 +83,7 @@ int main (void)
 			{
 				wins=fopen("record", "r");
 				displayWins(wins);
-				fclose("wins");
+				fclose(wins);
 			}
 		case 0:
 			{
