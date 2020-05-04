@@ -1,21 +1,16 @@
-//Compile run 5/3/2020 @ 8:32 PM
+//Compile run 5/3/2020 @ 11:25 PM
 
 testtt.c: In function ‘main’:
-testtt.c:55:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-  menuChoice=getMenuChoice;
-            ^
-testtt.c:69:10: warning: implicit declaration of function ‘checkForWinD’; did you mean ‘checkForWins’? [-Wimplicit-function-declaration]
-      win=checkForWinD (game);
-          ^~~~~~~~~~~~
-          checkForWins
-testtt.c:85:10: error: too few arguments to function ‘fopen’
-     wins=fopen("record" "r");
-          ^~~~~
-In file included from testtt.c:14:0:
-/usr/include/stdio.h:232:14: note: declared here
- extern FILE *fopen (const char *__restrict __filename,
-              ^~~~~
-testtt.c:87:12: warning: passing argument 1 of ‘fclose’ from incompatible pointer type [-Wincompatible-pointer-types]
+testtt.c:55:27: error: expected expression before ‘void’
+  menuChoice=getMenuChoice(void);
+                           ^~~~
+testtt.c:55:13: error: too many arguments to function ‘getMenuChoice’
+  menuChoice=getMenuChoice(void);
+             ^~~~~~~~~~~~~
+testtt.c:22:5: note: declared here
+ int getMenuChoice (void);
+     ^~~~~~~~~~~~~
+testtt.c:85:12: warning: passing argument 1 of ‘fclose’ from incompatible pointer type [-Wincompatible-pointer-types]
      fclose("wins");
             ^~~~~~
 In file included from testtt.c:14:0:
@@ -23,45 +18,45 @@ In file included from testtt.c:14:0:
  extern int fclose (FILE *__stream);
             ^~~~~~
 testtt.c: In function ‘checkForWinDDownRight’:
-testtt.c:269:10: error: ‘true’ undeclared (first use in this function)
+testtt.c:267:10: error: ‘true’ undeclared (first use in this function)
    return true;
           ^~~~
-testtt.c:269:10: note: each undeclared identifier is reported only once for each function it appears in
-testtt.c:271:10: error: ‘false’ undeclared (first use in this function); did you mean ‘fclose’?
+testtt.c:267:10: note: each undeclared identifier is reported only once for each function it appears in
+testtt.c:269:10: error: ‘false’ undeclared (first use in this function); did you mean ‘fclose’?
    return false;
           ^~~~~
           fclose
 testtt.c: In function ‘displayWins’:
-testtt.c:450:6: error: array size missing in ‘names’
+testtt.c:448:6: error: array size missing in ‘names’
  char names[];
       ^~~~~
-testtt.c:451:5: error: array size missing in ‘score’
+testtt.c:449:5: error: array size missing in ‘score’
  int score[];
      ^~~~~
-testtt.c:455:21: error: ‘numNames’ undeclared (first use in this function); did you mean ‘names’?
+testtt.c:453:21: error: ‘numNames’ undeclared (first use in this function); did you mean ‘names’?
   for(int w = 0; w < numNames; w++){
                      ^~~~~~~~
                      names
 testtt.c: In function ‘turnTracker’:
-testtt.c:464:6: error: ‘turnNum’ undeclared (first use in this function); did you mean ‘turn’?
+testtt.c:462:6: error: ‘turnNum’ undeclared (first use in this function); did you mean ‘turn’?
   if (turnNum % 2 == 0){
       ^~~~~~~
       turn
 testtt.c: In function ‘recordWin’:
-testtt.c:477:5: error: array type has incomplete element type ‘int[]’
+testtt.c:475:5: error: array type has incomplete element type ‘int[]’
  int score[][], array[], i, j, swap;
      ^~~~~
-testtt.c:477:5: note: declaration of ‘score’ as multidimensional array must have bounds for all dimensions except the first
-testtt.c:477:16: error: array size missing in ‘array’
+testtt.c:475:5: note: declaration of ‘score’ as multidimensional array must have bounds for all dimensions except the first
+testtt.c:475:16: error: array size missing in ‘array’
  int score[][], array[], i, j, swap;
                 ^~~~~
-testtt.c:481:21: error: expected expression before ‘;’ token
+testtt.c:479:21: error: expected expression before ‘;’ token
   for(int n = 0; n < ; n++){
                      ^
-testtt.c:482:40: error: subscripted value is neither array nor pointer nor vector
+testtt.c:480:40: error: subscripted value is neither array nor pointer nor vector
    fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
                                         ^
-testtt.c:486:9: warning: passing argument 1 of ‘fscanf’ from incompatible pointer type [-Wincompatible-pointer-types]
+testtt.c:484:9: warning: passing argument 1 of ‘fscanf’ from incompatible pointer type [-Wincompatible-pointer-types]
   fscanf("%c %d", &name, &array[i]);
          ^~~~~~~
 In file included from /usr/include/features.h:424:0,
@@ -71,29 +66,29 @@ In file included from /usr/include/features.h:424:0,
 /usr/include/stdio.h:395:12: note: expected ‘FILE * restrict {aka struct _IO_FILE * restrict}’ but argument is of type ‘char *’
  extern int __REDIRECT (fscanf, (FILE *__restrict __stream,
             ^
-testtt.c:488:25: error: ‘c’ undeclared (first use in this function)
+testtt.c:486:25: error: ‘c’ undeclared (first use in this function)
   for(i = 0; i < 10 - 1; c++){
                          ^
-testtt.c:489:18: error: ‘n’ undeclared (first use in this function)
+testtt.c:487:18: error: ‘n’ undeclared (first use in this function)
    for(j = 0; j < n - i - 1){
                   ^
-testtt.c:489:27: error: expected ‘;’ before ‘)’ token
+testtt.c:487:27: error: expected ‘;’ before ‘)’ token
    for(j = 0; j < n - i - 1){
                            ^
 testtt.c: In function ‘getUserInput’:
-testtt.c:507:10: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+testtt.c:505:10: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
   scanf("%d", game[chosenNum][i]);
          ~^   ~~~~~~~~~~~~~~~~~~
-testtt.c:508:20: error: ‘position’ undeclared (first use in this function)
+testtt.c:506:20: error: ‘position’ undeclared (first use in this function)
   updateArray(game, position, turnCounter);
                     ^~~~~~~~
 testtt.c: In function ‘updateArray’:
-testtt.c:516:4: warning: implicit declaration of function ‘verticalPostion’; did you mean ‘verticalPositions’? [-Wimplicit-function-declaration]
+testtt.c:514:4: warning: implicit declaration of function ‘verticalPostion’; did you mean ‘verticalPositions’? [-Wimplicit-function-declaration]
   y=verticalPostion(game, x);
     ^~~~~~~~~~~~~~~
     verticalPositions
-testtt.c:519:10: warning: ‘return’ with a value, in function returning void
+testtt.c:517:10: warning: ‘return’ with a value, in function returning void
    return 0;
           ^
-testtt.c:511:6: note: declared here
+testtt.c:509:6: note: declared here
  void updateArray (char game[][size+1], int x, int turnCounter)
