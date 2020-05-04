@@ -504,9 +504,10 @@ void getUserInput (char game[][size+1], int turnCounter)
 //This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
 char playerName;
 int chosenNum, i, position;
-	printf("%c - Enter your move: ", playerName);
 
-	scanf("%c", game[][chosenNum]);
+	printf("%c - Enter your move: ", playerName);
+	scanf("%d", &position);
+
 	updateArray(game[][size+1], position, turnCounter);
 
 }
