@@ -1,4 +1,4 @@
-//Compile run 5/4/2020 @ 12:05 AM
+//Compile run 5/4/2020 @ 12:29 AM
 
 testtt.c: In function ‘checkForWinDDownRight’:
 testtt.c:268:10: error: ‘true’ undeclared (first use in this function)
