@@ -125,16 +125,62 @@ void displayGame (char game[] [size+1])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-_Bool checkForWinH (void)
-{
-//Eshamw
-
-}
-
-_Bool checkForWinV (void)
+_Bool checkForWinH (char game[][size+1])
 {
 //Esham
+	int x,y,count;
+	count = 0;
+	x = 0;
+	y = 0;
+	while(x != 7)
+	{
+		if(game[x][y] == game[x][y+1] && y != 7)
+		{
+			count++;
+			y++;
+		}else if(game[x][y] != game[x][y+1] && y != 7)
+		{
+			count = 0;
+		}else if(y == 7)
+		{
+			x++;
+			y = 0;
+		}
+	}
+	if(count >= 4){
+		return true;
+	}else{
+		return false;
+	}
+}
 
+_Bool checkForWinV (char game[][size+1])
+{
+//Esham
+	int x,y,count;
+	count = 0;
+	x = 0;
+	y = 0;
+	while(x != 7)
+	{
+		if(game[x][y] == game[x+1][y] && y != 7)
+		{
+			count++;
+			y++;
+		}else if(game[x][y] != game[x+1][y] && y != 7)
+		{
+			count = 0;
+		}else if(y == 7)
+		{
+			x++;
+			y = 0;
+		}
+	}
+	if(count >= 4){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 _Bool checkForWinD (void)
