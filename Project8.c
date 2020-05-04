@@ -517,7 +517,7 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 //Matthew
 	int y;
 	char xo;
-	y=verticalPostion(game, x);
+	y=verticalPosition(game, x);
 	if(y==-1)
 	{
 		return 0;
