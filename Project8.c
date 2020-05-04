@@ -29,14 +29,14 @@ int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
 void getUserInput (char game[][size+1], int turnCounter);
 void updateArray (char game[][size+1], int userInput, int turnCounter);
-int verticalPositions (char game[][size+1], char x-position);
+int verticalPositions (char game[][size+1], char Xposition);
 void getPlayerNames (char player1[], char player2[]);
 void getstr(int max, char str[]);
 
 int main (void)
 {
 //Matthew
-	char game [size] [size+1]
+	char game [size] [size+1];
 	for (int i=0; i<size; i++)
 	{
 		for(int index=0; index<size+1; index++)
@@ -58,9 +58,11 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (turnCounter, game, turnCounter);
+					getUserInput (game, turnCounter);
 					turnCounter++;
-					win=checkForWin (game);
+					win=checkForWinH (game);
+					win=checkForWinV (game);
+					win=checkForWinD (game);
 				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
