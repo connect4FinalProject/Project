@@ -52,7 +52,7 @@ int main (void)
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
-	menuChoice=getMenuChoice(void);
+	menuChoice=getMenuChoice();
 	do
 	{
 		switch(menuChoice)
@@ -443,11 +443,11 @@ return win;
 void displayWins (FILE* wins)
 						//Does it sort the displayed results? - it does that in recordWin within the file. Assuming I'm doing what the design document says for the function.
 {
-//Maddison+
+//Maddison
 //Function scans scores.txt file for name and score then displayes the informations to the user's screen.
 char names[];
 int score[];
-
+//check the deom file.  The print statment cannot print strings like this.  You need  loop.
 	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
 
 	for(int w = 0; w < numNames; w++){
@@ -502,6 +502,7 @@ void getUserInput (char game[][size+1], int turnCounter)
 char playerName;
 int chosenNum, i;
 	printf("%c - Enter your move: ", playerName);
+	//The character array will nt work with this scan statment
 	scanf("%d", game[chosenNum][i]);
 	updateArray(game, position, turnCounter);
 }
