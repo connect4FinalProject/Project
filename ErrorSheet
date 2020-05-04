@@ -1,15 +1,6 @@
-//Compile run 5/3/2020 @ 11:25 PM
+//Compile run 5/3/2020 @ 11:50 PM
 
 testtt.c: In function ‘main’:
-testtt.c:55:27: error: expected expression before ‘void’
-  menuChoice=getMenuChoice(void);
-                           ^~~~
-testtt.c:55:13: error: too many arguments to function ‘getMenuChoice’
-  menuChoice=getMenuChoice(void);
-             ^~~~~~~~~~~~~
-testtt.c:22:5: note: declared here
- int getMenuChoice (void);
-     ^~~~~~~~~~~~~
 testtt.c:85:12: warning: passing argument 1 of ‘fclose’ from incompatible pointer type [-Wincompatible-pointer-types]
      fclose("wins");
             ^~~~~~
@@ -27,68 +18,53 @@ testtt.c:269:10: error: ‘false’ undeclared (first use in this function); did
           ^~~~~
           fclose
 testtt.c: In function ‘displayWins’:
-testtt.c:448:6: error: array size missing in ‘names’
- char names[];
-      ^~~~~
-testtt.c:449:5: error: array size missing in ‘score’
+testtt.c:448:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+testtt.c:452:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+testtt.c:454:5: error: redeclaration of ‘score’ with no linkage
  int score[];
      ^~~~~
-testtt.c:453:21: error: ‘numNames’ undeclared (first use in this function); did you mean ‘names’?
-  for(int w = 0; w < numNames; w++){
-                     ^~~~~~~~
-                     names
+testtt.c:450:5: note: previous declaration of ‘score’ was here
+ int score[11];
+     ^~~~~
+testtt.c:454:5: error: array size missing in ‘score’
+ int score[];
+     ^~~~~
+testtt.c:456:1: error: version control conflict marker in file
+ >>>>>>> c70929ef7c9e9cabbf131af8086bea75422bdd1e
+ ^~~~~~~
 testtt.c: In function ‘turnTracker’:
-testtt.c:462:6: error: ‘turnNum’ undeclared (first use in this function); did you mean ‘turn’?
+testtt.c:469:6: error: ‘turnNum’ undeclared (first use in this function); did you mean ‘turn’?
   if (turnNum % 2 == 0){
       ^~~~~~~
       turn
 testtt.c: In function ‘recordWin’:
-testtt.c:475:5: error: array type has incomplete element type ‘int[]’
- int score[][], array[], i, j, swap;
-     ^~~~~
-testtt.c:475:5: note: declaration of ‘score’ as multidimensional array must have bounds for all dimensions except the first
-testtt.c:475:16: error: array size missing in ‘array’
- int score[][], array[], i, j, swap;
-                ^~~~~
-testtt.c:479:21: error: expected expression before ‘;’ token
+testtt.c:486:21: error: expected expression before ‘;’ token
   for(int n = 0; n < ; n++){
                      ^
-testtt.c:480:40: error: subscripted value is neither array nor pointer nor vector
+testtt.c:487:40: error: subscripted value is neither array nor pointer nor vector
    fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
                                         ^
-testtt.c:484:9: warning: passing argument 1 of ‘fscanf’ from incompatible pointer type [-Wincompatible-pointer-types]
-  fscanf("%c %d", &name, &array[i]);
-         ^~~~~~~
-In file included from /usr/include/features.h:424:0,
-                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
-                 from /usr/include/stdio.h:27,
-                 from testtt.c:14:
-/usr/include/stdio.h:395:12: note: expected ‘FILE * restrict {aka struct _IO_FILE * restrict}’ but argument is of type ‘char *’
- extern int __REDIRECT (fscanf, (FILE *__restrict __stream,
-            ^
-testtt.c:486:25: error: ‘c’ undeclared (first use in this function)
-  for(i = 0; i < 10 - 1; c++){
-                         ^
-testtt.c:487:18: error: ‘n’ undeclared (first use in this function)
-   for(j = 0; j < n - i - 1){
-                  ^
-testtt.c:487:27: error: expected ‘;’ before ‘)’ token
-   for(j = 0; j < n - i - 1){
-                           ^
 testtt.c: In function ‘getUserInput’:
-testtt.c:505:10: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
-  scanf("%d", game[chosenNum][i]);
-         ~^   ~~~~~~~~~~~~~~~~~~
-testtt.c:506:20: error: ‘position’ undeclared (first use in this function)
-  updateArray(game, position, turnCounter);
-                    ^~~~~~~~
+testtt.c:512:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+testtt.c:514:19: error: expected expression before ‘]’ token
+  updateArray(game[][], position, turnCounter);
+                   ^
+testtt.c:514:24: error: ‘position’ undeclared (first use in this function)
+  updateArray(game[][], position, turnCounter);
+                        ^~~~~~~~
 testtt.c: In function ‘updateArray’:
-testtt.c:514:4: warning: implicit declaration of function ‘verticalPostion’; did you mean ‘verticalPositions’? [-Wimplicit-function-declaration]
+testtt.c:523:4: warning: implicit declaration of function ‘verticalPostion’; did you mean ‘verticalPositions’? [-Wimplicit-function-declaration]
   y=verticalPostion(game, x);
     ^~~~~~~~~~~~~~~
     verticalPositions
-testtt.c:517:10: warning: ‘return’ with a value, in function returning void
+testtt.c:526:10: warning: ‘return’ with a value, in function returning void
    return 0;
           ^
-testtt.c:509:6: note: declared here
+testtt.c:518:6: note: declared here
  void updateArray (char game[][size+1], int x, int turnCounter)
