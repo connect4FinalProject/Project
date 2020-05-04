@@ -23,7 +23,11 @@ int getMenuChoice (void);
 void displayGame (char game[][size+1]);
 _Bool checkForWinH (char game[][size+1]);
 _Bool checkForWinV (char game[][size+1]);
-_Bool checkForWinD (char game[][size+1]);
+_Bool checkForWinDDownRight (char game[][size+1]);
+_Bool checkForWinDUpRight (char game[][size+1]);
+_Bool checkForWinDDownLeft (char game[][size+1]);
+_Bool checkForWinDUpLeft (char game[][size+1]);
+_Bool checkForWins (char game[][size+1]);
 void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
@@ -131,19 +135,20 @@ _Bool checkForWinH (char game[][size+1])
 {
 //Esham
 	int x,y,count;
-	count = 0;
+	count = 1;
 	x = 0;
 	y = 0;
 	while(x != 7)
 	{
-		if(game[x][y] == game[x][y+1] && y != 7)
+		if(game[x][y] == game[x][y+1] && y != 6)
 		{
 			count++;
 			y++;
-		}else if(game[x][y] != game[x][y+1] && y != 7)
+		}else if(game[x][y] != game[x][y+1] && y != 6)
 		{
-			count = 0;
-		}else if(y == 7)
+			count = 1;
+			y++;
+		}else if(y == 6)
 		{
 			x++;
 			y = 0;
@@ -160,19 +165,20 @@ _Bool checkForWinV (char game[][size+1])
 {
 //Esham
 	int x,y,count;
-	count = 0;
+	count = 1;
 	x = 0;
 	y = 0;
 	while(x != 7)
 	{
-		if(game[x][y] == game[x+1][y] && y != 7)
+		if(game[x][y] == game[x+1][y] && y != 3)
 		{
 			count++;
 			y++;
-		}else if(game[x][y] != game[x+1][y] && y != 7)
+		}else if(game[x][y] != game[x+1][y] && y != 3)
 		{
-			count = 0;
-		}else if(y == 7)
+			count = 1;
+			y++;
+		}else if(y == 3)
 		{
 			x++;
 			y = 0;
@@ -185,7 +191,59 @@ _Bool checkForWinV (char game[][size+1])
 	}
 }
 
-_Bool checkForWinD (void)
+_Bool checkForWinDDownRight (char game[][size+1])
+{
+//Esham
+	int x,y,count,i;
+	count = 1;
+	x = 0;
+	y = 0;
+	i = 0;
+	while(i != 4)
+	{
+		if(game[x+i][y] == game[x+i+1][y+1] && y != 3)
+		{
+			count++;
+			y++;
+			x++;
+		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 3)
+		{
+			count = 1;
+			y++;
+			x++;
+		}else if(y == 3)
+		{
+			i++;
+			y = 0;
+			x = 0;
+		}
+	}
+	if(count >= 4){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+_Bool checkForWinDUpRight (char game[][size+1])
+{
+//Esham
+
+}
+
+_Bool checkForWinDDownLeft (char game[][size+1])
+{
+//Esham
+
+}
+
+_Bool checkForWinDUpLeft (char game[][size+1])
+{
+//Esham
+
+}
+
+_Bool checkForWins (char game[][size+1])
 {
 //Esham
 
