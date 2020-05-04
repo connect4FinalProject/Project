@@ -27,7 +27,7 @@ testtt.c:16:17: error: expected identifier or ‘(’ before numeric constant
  #define maxName 50
                  ^
 testtt.c:479:12: note: in expansion of macro ‘maxName’
- char name, maxName = 50;
+ char name, maxName = 50; //what is going on with the maco here?
             ^~~~~~~
 testtt.c:483:40: error: subscripted value is neither array nor pointer nor vector
    fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
@@ -36,16 +36,3 @@ testtt.c: In function ‘getUserInput’:
 testtt.c:511:19: error: expected expression before ‘]’ token
   updateArray(game[][size+1], position, turnCounter);
                    ^
-testtt.c: In function ‘updateArray’:
-testtt.c:523:10: warning: ‘return’ with a value, in function returning void
-   return 0;
-          ^
-testtt.c:515:6: note: declared here
- void updateArray (char game[][size+1], int x, int turnCounter)
-      ^~~~~~~~~~~
-testtt.c: At top level:
-testtt.c:529:5: error: conflicting types for ‘verticalPosition’
- int verticalPosition (char game[][size+1], int Xposition)
-     ^~~~~~~~~~~~~~~~
-testtt.c:36:5: note: previous declaration of ‘verticalPosition’ was here
- int verticalPosition (char game[][size+1], char Xposition);
