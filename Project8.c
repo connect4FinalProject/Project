@@ -52,7 +52,7 @@ int main (void)
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
-	menuChoice=getMenuChoice;
+	menuChoice=getMenuChoice(void);
 	do
 	{
 		switch(menuChoice)
@@ -64,9 +64,7 @@ int main (void)
 					displayGame (game);
 					getUserInput (game, turnCounter);
 					turnCounter++;
-					win=checkForWinH (game);
-					win=checkForWinV (game);
-					win=checkForWinD (game);
+					win=checkForWins (game);
 				}while(win==0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
@@ -82,7 +80,7 @@ int main (void)
 			}
 		case 2:
 			{
-				wins=fopen("record" "r");
+				wins=fopen("record", "r");
 				displayWins(wins);
 				fclose("wins");
 			}
