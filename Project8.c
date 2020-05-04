@@ -142,16 +142,29 @@ _Bool checkForWinH (char game[][size+1])
 	{
 		if(game[x][y] == game[x][y+1] && y != 6)
 		{
-			count++;
-			y++;
+			if(count >= 4){
+				i = 4;
+			}else{
+				count++;
+				y++;	
+			}
 		}else if(game[x][y] != game[x][y+1] && y != 6)
 		{
-			count = 1;
-			y++;
+			if(count >= 4){
+				i = 4;
+			}else{
+				count = 1;
+				y++;		
+			}
+
 		}else if(y == 6)
 		{
-			x++;
-			y = 0;
+			if(count >= 4){
+				i = 4;
+			}else{
+				x++;
+				y = 0;		
+			}
 		}
 	}
 	if(count >= 4){
@@ -172,16 +185,29 @@ _Bool checkForWinV (char game[][size+1])
 	{
 		if(game[x][y] == game[x+1][y] && y != 3)
 		{
-			count++;
-			y++;
+			if(count >= 4){
+				i = 4;
+			}else{
+				count++;
+				y++;		
+			}
+
 		}else if(game[x][y] != game[x+1][y] && y != 3)
 		{
-			count = 1;
-			y++;
+			if(count >= 4){
+				i = 4;
+			}else{
+				count = 1;
+				y++;	
+			}
 		}else if(y == 3)
 		{
-			x++;
-			y = 0;
+			if(count >= 4){
+				i = 4;
+			}else{
+				x++;
+				y = 0;		
+			}
 		}
 	}
 	if(count >= 4){
@@ -201,21 +227,35 @@ _Bool checkForWinDDownRight (char game[][size+1])
 	i = 0;
 	while(i != 4)
 	{
-		if(game[x+i][y] == game[x+i+1][y+1] && y != 3)
+		if(game[x+i][y] == game[x+i+1][y+1] && y != 4)
 		{
-			count++;
-			y++;
-			x++;
-		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 3)
+			if(count >= 4){
+				i = 4;
+			}else{
+				count++;
+				y++;
+				x++;		
+			}
+		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 4)
 		{
-			count = 1;
-			y++;
-			x++;
-		}else if(y == 3)
+			if(count >= 4){
+				i = 4;
+			}else{
+				count = 1;
+				y++;
+				x++;
+			}
+		}else if(y == 4)
 		{
-			i++;
-			y = 0;
-			x = 0;
+			if(count >= 4){
+				i = 4;
+			}else{
+				i++;
+				y = 0;
+				x = 0;
+				count = 1;
+			}
+
 		}
 	}
 	if(count >= 4){
@@ -228,7 +268,49 @@ _Bool checkForWinDDownRight (char game[][size+1])
 _Bool checkForWinDUpRight (char game[][size+1])
 {
 //Esham
+	int x,y,count,i;
+	count = 1;
+	x = 6;
+	y = 0;
+	i = 0;
+	while(i != 4)
+	{
+		if(game[x-i][y] == game[x-i-1][y+1] && y != 4)
+		{
+			if(count >= 4){
+				i = 4;
+			}else{
+				count++;
+				y++;
+				x--;		
+			}
+		}else if(game[x-i][y] != game[x-i-1][y+1] && y != 4)
+		{
+			if(count >= 4){
+				i = 4;
+			}else{
+				count = 1;
+				y++;
+				x--;
+			}
+		}else if(y == 4)
+		{
+			if(count >= 4){
+				i = 4;
+			}else{
+				i++;
+				y = 0;
+				x = 6;
+				count = 1;
+			}
 
+		}
+	}
+	if(count >= 4){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 _Bool checkForWinDDownLeft (char game[][size+1])
