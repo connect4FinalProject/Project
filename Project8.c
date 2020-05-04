@@ -32,8 +32,8 @@ void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
 void getUserInput (char game[][size+1], int turnCounter);
-void updateArray (char game[][size+1], int userInput, int turnCounter);
-int verticalPosition (char game[][size+1], char Xposition);
+void updateArray (char game[][size+1], int x, int turnCounter);
+int verticalPosition (char game[][size+1], int Xposition);
 void getPlayerNames (char player1[], char player2[]);
 void getstr(int max, char str[]);
 
@@ -476,7 +476,7 @@ void recordWin (FILE* wins, char winnerName[])
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
 int max = 20, score[11][2], array[max], i, j, swap, n;
-char name, maxName = 50;
+char name, maxName = 50; //what is going on with the maco here?
 
 	//Saving win to file:
 	for(int n = 0; n < 10 ; n++){
@@ -520,7 +520,7 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 	y=verticalPosition(game, x);
 	if(y==-1)
 	{
-		return 0;
+		return;
 	}
 	xo=turnTracker (turnCounter);
 	game[x][y]=xo;
