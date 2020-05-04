@@ -457,7 +457,7 @@ int turnTracker (int turnCounter)
 {
 //Esham
 	int turn;
-	if (turnNum % 2 == 0){
+	if (turnCounter % 2 == 0){
 		turn = 1;
 	}else{
 		turn = 0;
