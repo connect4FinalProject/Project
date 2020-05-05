@@ -526,11 +526,11 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 	xoCode=turnTracker (turnCounter);
 	if(xoCode==0)
 	{
-		xo='o';
+		xo='X';
 	}
 	else
 	{
-		xo='x';
+		xo='O';
 	}
 	game[y][x]=xo;
 }
