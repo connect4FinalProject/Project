@@ -22,7 +22,7 @@ int checkForWins (char game[][size+1]);
 void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
-void getUserInput (char game[][size+1], int turnCounter);
+void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[], int turnCounter);
 void updateArray (char game[][size+1], int x, int turnCounter);
 int verticalPosition (char game[][size+1], int Xposition);
 void getPlayerNames (char player1[], char player2[]);
@@ -54,7 +54,7 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (game, turnCounter);
+					getUserInput (game, turnCounter, player1, player2, turnCounter)
 					turnCounter++;
 					win=checkForWins (game);
 				}while(win!=0 && turnCounter!=maxTurns);
@@ -483,14 +483,17 @@ char name/**, maxName = 50**/; //what is going on with the maco here?
 
 }
 
-void getUserInput (char game[][size+1], int turnCounter)
+void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[], int turnCounter)
 {
 //Maddison
-char playerName;
-int chosenNum, i, position;
+	int position;
 
+<<<<<<< HEAD
 turnTracker(turnCounter);
 	printf("%c - Enter your move: ", playerName);
+=======
+	printf("%s - Enter your move: ", playerName);
+>>>>>>> ecb1c64dc2050fe8b512d2e274eef65e9fa4667d
 	scanf("%d", &position);
 
 	updateArray(game, position, turnCounter);
