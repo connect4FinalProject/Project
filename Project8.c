@@ -53,10 +53,10 @@ int main (void)
 				getPlayerNames (player1, player2);
 				do
 				{
+					turnCounter++;
 					displayGame (game);
 					getUserInput (game, turnCounter, player1, player2);
-					turnCounter++;
-					win=checkForWins (game);
+					turnCounter++;					win=checkForWins (game);
 				}while(win!=0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
@@ -499,7 +499,6 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 {
 //Maddison
 	int position, temp = turnTracker(turnCounter);
-	turnTracker(turnCounter);
 	if(temp == 0){
 	printf("%s - Enter your move: ", player2);
 	scanf("%d", &position);
@@ -512,7 +511,7 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 
 }
 
-//Checks each vertical position from top to bottom to see where an open spot is in the array.  
+//Checks each vertical position from to to bottom to see where an open spot is in the array.  
 void updateArray (char game[][size+1], int x, int turnCounter)
 {
 //Matthew
@@ -551,9 +550,9 @@ void getPlayerNames (char player1[], char player2[])
 	int max;
 
 	printf("Player 1, enter your name: ");
-	getstr(max,player1);
+	scanf("%s",player1);
 	printf("Player 2, enter your name: ");
-	getstr(max,player2);
+	scanf("%s",player2);
 
 
 }
