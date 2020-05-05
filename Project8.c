@@ -89,6 +89,8 @@ int main (void)
 	} while (menuChoice!=0);
 	return 0;
 }
+
+//Displays a menu with choices for the user to pick from. From here they can start a game, show scores, and exit the game.
 int getMenuChoice (void)
 {
 //Esham
@@ -103,6 +105,7 @@ int getMenuChoice (void)
 	return menuInput;
 }
 
+//Displays the game board
 void displayGame (char game[] [size+1])
 {
 //Matthew
@@ -122,6 +125,7 @@ void displayGame (char game[] [size+1])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
+//Checks for horizontal combinations
 int checkForWinH (char game[][size+1])
 {
 //Esham
@@ -166,6 +170,7 @@ int checkForWinH (char game[][size+1])
 return win;
 }
 
+//Checks for Vertical combinations
 int checkForWinV (char game[][size+1])
 {
 //Esham
@@ -210,6 +215,7 @@ int checkForWinV (char game[][size+1])
 return win;
 }
 
+//Checks for Diagonal combinations (1/4)
 int checkForWinDDownRight (char game[][size+1])
 {
 //Esham
@@ -258,6 +264,7 @@ int checkForWinDDownRight (char game[][size+1])
 return win;
 }
 
+//Checks for Diagonal combinations (2/4)
 int checkForWinDUpRight (char game[][size+1])
 {
 //Esham
@@ -307,6 +314,7 @@ int checkForWinDUpRight (char game[][size+1])
 return win;
 }
 
+//Checks for Diagonal combinations (3/4)
 int checkForWinDDownLeft (char game[][size+1])
 {
 //Esham
@@ -355,6 +363,7 @@ int checkForWinDDownLeft (char game[][size+1])
 return win;
 }
 
+//Checks for Diagonal combinations (4/4)
 int checkForWinDUpLeft (char game[][size+1])
 {
 //Esham
@@ -403,6 +412,7 @@ int checkForWinDUpLeft (char game[][size+1])
 return win;
 }
 
+//Calls all CheckForWin functions
 int checkForWins (char game[][size+1])
 {
 //Esham
@@ -425,6 +435,7 @@ int checkForWins (char game[][size+1])
 return win;
 }
 
+//This function opens the game file. It then displays results and record a new win through recordWin.
 void displayWins (FILE* wins)
 {
 //Maddison
@@ -443,7 +454,7 @@ int score[maxName];
 		printf("%c: %d", names[w], score[w]);
 	}
 }
-
+//Checks which player's turn it currently is.
 int turnTracker (int turnCounter)
 {
 //Esham
@@ -457,6 +468,7 @@ int turnTracker (int turnCounter)
 	return turn;
 }
 
+//This function is called from displayWins to append the file and add a new win.
 void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
@@ -482,6 +494,7 @@ char name/**, maxName = 50**/; //what is going on with the maco here?
 
 }
 
+//This function will get the user input then call updateArray. It then calls turnTracker to determine to put an x or an o. then it records the x or o in the array.
 void getUserInput (char game[][size+1], int turnCounter)
 {
 //Maddison
@@ -495,6 +508,7 @@ int chosenNum, i, position;
 
 }
 
+//Checks each vertical position from top to bottom to see where an open spot is in the array.  
 void updateArray (char game[][size+1], int x, int turnCounter)
 {
 //Matthew
@@ -509,6 +523,7 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 	game[x][y]=xo;
 }
 
+//This function is called by the update array function to know the vertical position of the array.
 int verticalPosition (char game[][size+1], int Xposition)
 {
 //if a -1 is returned, the move was invalid
@@ -525,6 +540,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 	return -1;
 }
 
+//This function prompts the users to enter their names, then it is stored in a string.
 void getPlayerNames (char player1[], char player2[])
 {
 //Esham
