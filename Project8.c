@@ -534,7 +534,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 //Matthew
 	for (int i=0; i<=7; i++)
 	{
-		if (game[y][Xposition]==' ')
+		if (game[i][Xposition]==' ')
 		{
 			return i;
 			i=10;
