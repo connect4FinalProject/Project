@@ -515,7 +515,7 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 void updateArray (char game[][size+1], int x, int turnCounter)
 {
 //Matthew
-	int y;
+	int y, xoCode;
 	char xo;
 	x=x-1;
 	y=verticalPosition(game, x);
@@ -523,7 +523,15 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 	{
 		return;
 	}
-	xo=turnTracker (turnCounter);
+	xoCode=turnTracker (turnCounter);
+	if(xoCode==0)
+	{
+		xo='o';
+	}
+	else
+	{
+		xo='x';
+	}
 	game[y][x]=xo;
 }
 
