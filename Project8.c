@@ -509,8 +509,6 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 	}
 	updateArray(game, position, turnCounter);
 
-	printf("%s, you'll be X's\n", player1);
-	printf("%s, you'll be O's\n", player2);
 
 }
 
@@ -568,6 +566,9 @@ void getPlayerNames (char player1[], char player2[])
 	scanf("%s",player1);
 	printf("Player 2, enter your name: ");
 	scanf("%s",player2);
+
+	printf("%s, you'll be X's\n", player1);
+	printf("%s, you'll be O's\n", player2);
 
 
 }
