@@ -499,7 +499,6 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 {
 //Maddison
 	int position, temp = turnTracker(turnCounter);
-	turnTracker(turnCounter);
 	if(temp == 0){
 	printf("%s - Enter your move: \n", player2);
 	scanf("%d", &position);
@@ -512,7 +511,7 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 
 }
 
-//Checks each vertical position from top to bottom to see where an open spot is in the array.  
+//Checks each vertical position from to to bottom to see where an open spot is in the array.  
 void updateArray (char game[][size+1], int x, int turnCounter)
 {
 //Matthew
