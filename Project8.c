@@ -498,13 +498,13 @@ char name, mName = 50;
 void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[])
 {
 //Maddison
-	int position;
+	int position, temp = turnTracker;
 	turnTracker(turnCounter);
-	if(turnTracker == 0){
+	if(temp == 0){
 	printf("%s - Enter your move: ", player2[]);
 	scanf("%d", &position);
 	}
-	else if(turnTracker == 1){
+	else if(temp == 1){
 	printf("%s - Enter your move: ", player1[]);
 	scanf("%d", &position);
 	}
