@@ -169,17 +169,7 @@ int checkForWinH (char game[][size+1])
 				x++;
 				y = 0;		
 			}
-		}else
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count = 1;
-				y++;		
-			}
 		}
-		
 	}
 return win;
 }
@@ -223,14 +213,6 @@ int checkForWinV (char game[][size+1])
 				x++;
 				y = 0;		
 			}
-		}else{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count = 1;
-				y++;	
-			}			
 		}
 	}
 return win;
@@ -279,15 +261,6 @@ int checkForWinDDownRight (char game[][size+1])
 				x = 0;
 				count = 1;
 			}
-		}else{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y++;
-				x++;
-			}			
 		}
 	}
 return win;
@@ -337,15 +310,6 @@ int checkForWinDUpRight (char game[][size+1])
 				count = 1;
 			}
 
-		}else{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y++;
-				x--;
-			}			
 		}
 	}
 return win;
@@ -394,15 +358,6 @@ int checkForWinDDownLeft (char game[][size+1])
 				x = 0;
 				count = 1;
 			}
-		}else{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y--;
-				x++;
-			}			
 		}
 	}
 return win;
@@ -451,15 +406,6 @@ int checkForWinDUpLeft (char game[][size+1])
 				x = 6;
 				count = 1;
 			}
-		}else{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y--;
-				x--;
-			}			
 		}
 	}
 return win;
@@ -584,7 +530,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 			i=10;
 		}
 	}
-	printf("Please enter a valid move: ");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: ""Please enter a valid move: "; than you.
+	printf("Please enter a valid move: \n");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: ""Please enter a valid move: "; than you.
 	return -1;
 }
 
