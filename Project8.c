@@ -112,9 +112,9 @@ void displayGame (char game[] [size+1])
 	char temp;
 	printf("[1][2][3][4][5][6][7]\n");
 	printf("---------------------\n");
-	for(int index=0; index<size; index++)
+	for(int index=7; index>=0; index--)
 	{
-		for(int i=7; i>=0; i--)
+		for(int i=0; i<size; i++)
 		{
 			temp=game [index][i];
 			printf("[%c]", temp);
