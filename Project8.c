@@ -575,17 +575,3 @@ void getPlayerNames (char player1[], char player2[])
 
 
 }
-
-void getstr(int max, char str[])
-{
-//Esham
-
-	int i = 0;
-
-	do{
-		str[i] = getchar();
-		i++;
-	while(i<max && str[i - 1] != '\n');
-	str[i - 1] = '\0';
-
-}
