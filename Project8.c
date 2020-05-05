@@ -499,10 +499,15 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 {
 //Maddison
 	int position;
-
-	printf("%s - Enter your move: ", playerName);
+	turnTracker(turnCounter);
+	if(turnTracker == 0){
+	printf("%s - Enter your move: ", player2[]);
 	scanf("%d", &position);
-
+	}
+	else if(turnTracker == 1){
+	printf("%s - Enter your move: ", player1[]);
+	scanf("%d", &position);
+	}
 	updateArray(game, position, turnCounter);
 
 }
