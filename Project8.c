@@ -54,7 +54,7 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (game, turnCounter, player1, player2)
+					getUserInput (game, turnCounter, player1, player2);
 					turnCounter++;
 					win=checkForWins (game);
 				}while(win!=0 && turnCounter!=maxTurns);
