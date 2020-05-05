@@ -462,10 +462,10 @@ void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
 int max = 20, score[11][2], array[max], i, j, swap, n;
-char name/**, maxName = 50**/; //what is going on with the maco here?
+char name, mName = 50;
 
 	for(int n = 0; n < 10 ; n++){
-		fprintf(wins, "%c %d", winnerName[maxName], score[11][2]);
+		fprintf(wins, "%c %d", winnerName[mName], score[11][2]);
 	}
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
