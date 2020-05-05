@@ -32,13 +32,6 @@ int main (void)
 {
 //Matthew
 	char game [size] [size+1];
-	for (int i=0; i<size; i++)
-	{
-		for(int index=0; index<size+1; index++)
-		{
-			game [i] [index]=' ';
-		}
-	}
 	char player1[maxName], player2[maxName], winner[maxName];
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
@@ -50,6 +43,13 @@ int main (void)
 		{
 		case 1:
 			{
+				for (int i=0; i<size+1; i++)
+				{
+					for(int index=0; index<size; index++)
+					{
+						game [i] [index]=' ';
+					}
+				}
 				getPlayerNames (player1, player2);
 				do
 				{
