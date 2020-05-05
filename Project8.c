@@ -557,6 +557,8 @@ int verticalPosition (char game[][size+1], int Xposition)
 			i=10;
 		}
 	}
+	printf("Please enter a valid move: \n");
+	return -1;
 }
 
 //This function prompts the users to enter their names, then it is stored in a string.
