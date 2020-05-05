@@ -2,15 +2,6 @@
 //due May 5
 //This is a connect 4 game that will display the hisoric wins to the user
 
-//GENERAL NOTES
-//2D string "game" is the game board, folows game [x-coord] [y-coord] format										Read by: Matthew, Esham, Maddi
-//files will be open when given to functions from main													Read by: Matthew, Esham, Maddi
-//recordWin is the only funciton called in main for the win scenario.  Make a note if you want that to change.						Read by: Matthew, Esham, Maddi
-//can someone with a workign executable (Matthew cannont get his to stop winning) tell me what the error message is for not opening the files.txt? 	Read by: Matthew, Esham, Maddi
-	//There is no error message as far as I can tell, it only shows a blank line then shows the menu again.
-//Matthew is aware that the functions do not give any verriables in their present state.								Read by: Matthew, Esham, Maddi
-
-
 #include<stdio.h>
 #include<string.h>
 #define maxName 50
@@ -48,7 +39,7 @@ int main (void)
 			game [i] [index]=' ';
 		}
 	}
-	char player1[maxName], player2[maxName], winner[maxName];			//fundamental misunderstanding of how char array works
+	char player1[maxName], player2[maxName], winner[maxName];
 	_Bool win=0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
@@ -434,16 +425,13 @@ return win;
 }
 
 void displayWins (FILE* wins)
-						//Does it sort the displayed results? - it does that in recordWin within the file. Assuming I'm doing what the design document says for the function.
 {
 //Maddison
-//Function scans scores.txt file for name and score then displayes the informations to the user's screen.
-//<<<<<<< HEAD
 char names[11];
 int score[11];
 
 	for(int a = 0; a < 11; a++){
-	fscanf(wins, "%c %d", &names[11], &score[11]); //(names[] stores 11 items so it only looks for 10 items-ish (I think))
+	fscanf(wins, "%c %d", &names[11], &score[11]);
 	}
 	for(int w = 0; w < 10; w++){
 		printf("%c: %d", names[w], score[w]);
@@ -466,14 +454,12 @@ int turnTracker (int turnCounter)
 void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
-//This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
 int max = 20, score[11][2], array[max], i, j, swap, n;
 char name/**, maxName = 50**/; //what is going on with the maco here?
 
-	//Saving win to file:
 	for(int n = 0; n < 10 ; n++){
-		fprintf(wins, "%c %d", winnerName[maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
-}
+		fprintf(wins, "%c %d", winnerName[maxName], score[11][2]);
+	}
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
 	fscanf(wins, "%c %d", &name, &array[i]);
@@ -493,7 +479,6 @@ char name/**, maxName = 50**/; //what is going on with the maco here?
 void getUserInput (char game[][size+1], int turnCounter)
 {
 //Maddison
-//This function will get user input to determine their move then call the updateArray funcion to place the user's symbol in their chosen spot.
 char playerName;
 int chosenNum, i, position;
 
@@ -530,7 +515,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 			i=10;
 		}
 	}
-	printf("Please enter a valid move: \n");							//find out the text for an invalid move;  Esham: text for invalid move is "Please enter a valid move: ""Please enter a valid move: "; than you.
+	printf("Please enter a valid move: \n");
 	return -1;
 }
 
