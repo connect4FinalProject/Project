@@ -443,7 +443,7 @@ char names[maxName], temp;
 int score[maxName];
 
 
-	for(int i=0; i < maxName && fscanf(wins, "scores.txt", "r")!= '\n'; i++){
+	for(int i=0; i < maxName && fscanf(wins, "%c %d", &names, &score) != '\n'; i++){
 		scanf("%c", temp);
 		names[i] = temp;
 	}
