@@ -551,9 +551,9 @@ void getPlayerNames (char player1[], char player2[])
 	int max;
 
 	printf("Player 1, enter your name: ");
-	getstr(max,player1);
+	scanf("%s",player1);
 	printf("Player 2, enter your name: ");
-	getstr(max,player2);
+	scanf("%s",player2);
 
 
 }
