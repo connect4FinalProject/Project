@@ -498,7 +498,7 @@ char name, mName = 50;
 void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[])
 {
 //Maddison
-	int position, temp = turnTracker;
+	int position, temp = turnTracker(turnCounter);
 	turnTracker(turnCounter);
 	if(temp == 0){
 	printf("%s - Enter your move: ", player2);
