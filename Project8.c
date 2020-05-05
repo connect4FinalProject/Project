@@ -441,7 +441,7 @@ void displayWins (FILE* wins)
 {
 //Maddison
 //Function scans scores.txt file for name and score then displayes the informations to the user's screen.
-<<<<<<< HEAD
+//<<<<<<< HEAD
 char names[11];
 int score[11];
 
@@ -475,7 +475,7 @@ char name, maxName = 50; //what is going on with the maco here?
 
 	//Saving win to file:
 	for(int n = 0; n < 10 ; n++){
-		fprintf(wins, "%c %d", winnerName[11][maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
+		fprintf(wins, "%c %d", winnerName[maxName], score[11][2]);//array is: [max rows(no more than 10][max characters or integers in that row]
 }
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
@@ -503,7 +503,7 @@ int chosenNum, i, position;
 	printf("%c - Enter your move: ", playerName);
 	scanf("%d", &position);
 
-	updateArray(game[][size+1], position, turnCounter);
+	updateArray(game, position, turnCounter);
 
 }
 
