@@ -112,7 +112,7 @@ void displayGame (char game[] [size+1])
 	char temp;
 	printf("[1][2][3][4][5][6][7]\n");
 	printf("---------------------\n");
-	for(int index=7; index>0; index--)
+	for(int index=7; index>=0; index--)
 	{
 		for(int i=0; i<size; i++)
 		{
@@ -532,6 +532,11 @@ int verticalPosition (char game[][size+1], int Xposition)
 {
 //if a -1 is returned, the move was invalid
 //Matthew
+	if (Xposition<0 || Xposition>7)
+	{
+	printf("Please enter a valid move: \n");
+	return -1;
+	}
 	for (int i=0; i<=7; i++)
 	{
 		if (game[i][Xposition]==' ')
@@ -540,8 +545,6 @@ int verticalPosition (char game[][size+1], int Xposition)
 			i=10;
 		}
 	}
-	printf("Please enter a valid move: \n");
-	return -1;
 }
 
 //This function prompts the users to enter their names, then it is stored in a string.
