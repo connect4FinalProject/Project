@@ -321,7 +321,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 {
 //if a -1 is returned, the move was invalid
 //Matthew
-	if (Xposition<=0 || Xposition>7)
+	if (Xposition<0 || Xposition>=7)
 	{
 	printf("Please enter a valid move: \n");
 	return -1;
@@ -334,6 +334,8 @@ int verticalPosition (char game[][size+1], int Xposition)
 			i=10;
 		}
 	}
+	printf("Please enter a valid move: \n");
+	return -1;
 }
 
 //This function prompts the users to enter their names, then it is stored in a string.
