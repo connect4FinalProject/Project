@@ -22,7 +22,7 @@ int checkForWins (char game[][size+1]);
 void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
 void recordWin (FILE* wins, char winnerName[]);
-void getUserInput (char game[][size+1], int turnCounter);
+void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[]);
 void updateArray (char game[][size+1], int x, int turnCounter);
 int verticalPosition (char game[][size+1], int Xposition);
 void getPlayerNames (char player1[], char player2[]);
@@ -54,7 +54,7 @@ int main (void)
 				do
 				{
 					displayGame (game);
-					getUserInput (game, turnCounter);
+					getUserInput (game, turnCounter, player1, player2);
 					turnCounter++;
 					win=checkForWins (game);
 				}while(win!=0 && turnCounter!=maxTurns);
@@ -442,6 +442,7 @@ void displayWins (FILE* wins)
 char names[maxName], temp;
 int score[maxName];
 
+
 	for(int i=0; i < maxName && fscanf("") != '\n'; i++){
 		scanf("%c", temp);
 		names[i] = temp;
@@ -473,10 +474,10 @@ void recordWin (FILE* wins, char winnerName[])
 {
 //Maddison
 int max = 20, score[11][2], array[max], i, j, swap, n;
-char name/**, maxName = 50**/; //what is going on with the maco here?
+char name, mName = 50;
 
 	for(int n = 0; n < 10 ; n++){
-		fprintf(wins, "%c %d", winnerName[maxName], score[11][2]);
+		fprintf(wins, "%c %d", winnerName[mName], score[11][2]);
 	}
 	//Bubble sort:
 	for(i = 0; i < 10; i++){
@@ -494,14 +495,12 @@ char name/**, maxName = 50**/; //what is going on with the maco here?
 
 }
 
-//This function will get the user input then call updateArray. It then calls turnTracker to determine to put an x or an o. then it records the x or o in the array.
-void getUserInput (char game[][size+1], int turnCounter)
+void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[])
 {
 //Maddison
-char playerName;
-int chosenNum, i, position;
+	int position;
 
-	printf("%c - Enter your move: ", playerName);
+	printf("%s - Enter your move: ", playerName);
 	scanf("%d", &position);
 
 	updateArray(game, position, turnCounter);
