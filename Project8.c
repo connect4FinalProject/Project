@@ -33,7 +33,7 @@ int main (void)
 //Matthew
 	char game [size] [size+1];
 	char player1[maxName], player2[maxName], winner[maxName];
-	_Bool win=0;
+	int win = 0;
 	int turnCounter=-1, menuChoice;
 	FILE *wins;
 	menuChoice=getMenuChoice();
@@ -56,8 +56,8 @@ int main (void)
 					turnCounter++;
 					displayGame (game);
 					getUserInput (game, turnCounter, player1, player2);
-					win=checkForWins (game);
-				}while(win!=0 && turnCounter!=maxTurns);
+					win=checkForWins(game);
+				}while(win!=1 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
@@ -125,314 +125,91 @@ void displayGame (char game[] [size+1])
 	printf("[1][2][3][4][5][6][7]\n");
 }
 
-//Checks for horizontal combinations
-int checkForWinH (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count;
-	int win = 0;
-	count = 1;
-	x = 0;
-	y = 0;
-	while(x != 7)
-	{
-		if(game[x][y] == game[x][y+1] && y != 6)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count++;
-				y++;	
-			}
-		}else if(game[x][y] != game[x][y+1] && y != 6)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count = 1;
-				y++;		
-			}
-
-		}else if(y == 6)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				x++;
-				y = 0;		
-			}
-		}
-	}
-return win;
-}
-
-//Checks for Vertical combinations
-int checkForWinV (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count;
-	int win = 0;
-	count = 1;
-	x = 0;
-	y = 0;
-	while(x != 7)
-	{
-		if(game[x][y] == game[x+1][y] && y != 3)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count++;
-				y++;		
-			}
-
-		}else if(game[x][y] != game[x+1][y] && y != 3)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				count = 1;
-				y++;	
-			}
-		}else if(y == 3)
-		{
-			if(count >= 4){
-				x = 7;
-				win = 1;
-			}else{
-				x++;
-				y = 0;		
-			}
-		}
-	}
-return win;
-}
-
-//Checks for Diagonal combinations (1/4)
-int checkForWinDDownRight (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count,i;
-	int win = 0;
-	count = 1;
-	x = 0;
-	y = 0;
-	i = 0;
-	while(i != 4)
-	{
-		if(game[x+i][y] == game[x+i+1][y+1] && y != 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count++;
-				y++;
-				x++;		
-			}
-		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y++;
-				x++;
-			}
-		}else if(y == 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				i++;
-				y = 0;
-				x = 0;
-				count = 1;
-			}
-		}
-	}
-return win;
-}
-
-//Checks for Diagonal combinations (2/4)
-int checkForWinDUpRight (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count,i;
-	int win = 0;
-	count = 1;
-	x = 6;
-	y = 0;
-	i = 0;
-	while(i != 4)
-	{
-		if(game[x-i][y] == game[x-i-1][y+1] && y != 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count++;
-				y++;
-				x--;		
-			}
-		}else if(game[x-i][y] != game[x-i-1][y+1] && y != 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y++;
-				x--;
-			}
-		}else if(y == 4)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				i++;
-				y = 0;
-				x = 6;
-				count = 1;
-			}
-
-		}
-	}
-return win;
-}
-
-//Checks for Diagonal combinations (3/4)
-int checkForWinDDownLeft (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count,i;
-	int win = 0;
-	count = 1;
-	x = 0;
-	y = 6;
-	i = 0;
-	while(i != 4)
-	{
-		if(game[x+i][y] == game[x+i+1][y+1] && y != 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count++;
-				y--;
-				x++;		
-			}
-		}else if(game[x+i][y] != game[x+i+1][y+1] && y != 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y--;
-				x++;
-			}
-		}else if(y == 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				i++;
-				y = 6;
-				x = 0;
-				count = 1;
-			}
-		}
-	}
-return win;
-}
-
-//Checks for Diagonal combinations (4/4)
-int checkForWinDUpLeft (char game[][size+1])
-{
-//Esham
-// 1 = win 0 = no win
-	int x,y,count,i;
-	int win = 0;
-	count = 1;
-	x = 6;
-	y = 6;
-	i = 0;
-	while(i != 4)
-	{
-		if(game[x-i][y] == game[x-i-1][y-1] && y != 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count++;
-				y--;
-				x--;		
-			}
-		}else if(game[x-i][y] != game[x-i-1][y-1] && y != 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				count = 1;
-				y--;
-				x--;
-			}
-		}else if(y == 2)
-		{
-			if(count >= 4){
-				i = 4;
-				win = 1;
-			}else{
-				i++;
-				y = 6;
-				x = 6;
-				count = 1;
-			}
-		}
-	}
-return win;
-}
-
-//Calls all CheckForWin functions
-int checkForWins (char game[][size+1])
-{
-//Esham
+int checkForWins(char game[][size+1]){
 	int win = 0;
 	if(checkForWinH(game) == 1){
 		win = 1;
 	}else if(checkForWinV(game) == 1){
 		win = 1;
-	}else if(checkForWinDDownLeft(game) == 1){
-		win = 1;
-	}else if(checkForWinDDownRight(game) == 1){
-		win = 1;
-	}else if(checkForWinDUpLeft(game) == 1){
-		win = 1;
-	}else if(checkForWinDUpRight(game) == 1){
-		win = 1;
-	}else{
-		win = 0;
 	}
 return win;
+}
+
+//Checks for horizontal combinations
+int checkForWinH (char game[][size+1])
+{
+//Esham
+// 1 = win 0 = no win
+	int combo = 1,x = 0,y = 0,count = 0,win = 0;
+
+	while(y != 7){
+		//printf("a\n");
+		if(game[y][x] != ' ' && game[y][x+1] == game[y][x]){
+			//printf("b\n");
+			combo++;
+			x++;
+			if(combo >= 4){
+				//printf("c\n");
+				y = 7;
+			}
+		}else if(x == 7){
+			//printf("d\n");
+			combo = 1;
+			y++;
+			x = 0;
+		}else{
+			//printf("e\n");
+			x++;
+			combo = 1;
+		}
+	}
+	if (combo >= 4){
+		//printf("f\n");
+		win = 1;
+	}else{
+		//printf("g\n");
+		win = 0;
+	}
+	//printf("%d\n",win);
+	return win;
+}
+
+int checkForWinV (char game[][size+1])
+{
+//Esham
+// 1 = win 0 = no win
+	int combo = 1,x = 0,y = 0,count = 0,win = 0;
+
+	while(x != 7){
+		//printf("a\n");
+		if(game[y][x] != ' ' && game[y+1][x] == game[y][x]){
+			//printf("b\n");
+			combo++;
+			y++;
+			if(combo >= 4){
+				//printf("c\n");
+				x = 7;
+			}
+		}else if(y == 7){
+			//printf("d\n");
+			combo = 1;
+			x++;
+			y = 0;
+		}else{
+			//printf("e\n");
+			y++;
+			combo = 1;
+		}
+	}
+	if (combo >= 4){
+		//printf("f\n");
+		win = 1;
+	}else{
+		//printf("g\n");
+		win = 0;
+	}
+	//printf("%d\n",win);
+	return win;
 }
 
 //This function opens the game file. It then displays results and record a new win through recordWin.
