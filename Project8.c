@@ -500,14 +500,17 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 //Maddison
 	int position, temp = turnTracker(turnCounter);
 	if(temp == 0){
-	printf("%s - Enter your move: ", player2);
-	scanf("%d", &position);
-	}
-	else if(temp == 1){
 	printf("%s - Enter your move: ", player1);
 	scanf("%d", &position);
 	}
+	else if(temp == 1){
+	printf("%s - Enter your move: ", player2);
+	scanf("%d", &position);
+	}
 	updateArray(game, position, turnCounter);
+
+	printf("%s, you'll be X's\n", player1);
+	printf("%s, you'll be O's\n", player2);
 
 }
 
