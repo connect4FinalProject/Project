@@ -114,7 +114,7 @@ void displayGame (char game[] [size+1])
 	printf("---------------------\n");
 	for(int index=0; index<size; index++)
 	{
-		for(int i=0; i<size; i++)
+		for(int i=7; i>=0; i--)
 		{
 			temp=game [index][i];
 			printf("[%c]", temp);
@@ -517,13 +517,14 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 //Matthew
 	int y;
 	char xo;
+	x=x-1;
 	y=verticalPosition(game, x);
 	if(y==-1)
 	{
 		return;
 	}
 	xo=turnTracker (turnCounter);
-	game[x][y]=xo;
+	game[y][x]=xo;
 }
 
 //This function is called by the update array function to know the vertical position of the array.
@@ -533,7 +534,7 @@ int verticalPosition (char game[][size+1], int Xposition)
 //Matthew
 	for (int i=0; i<=7; i++)
 	{
-		if (game[Xposition][i]==' ')
+		if (game[y][Xposition]==' ')
 		{
 			return i;
 			i=10;
