@@ -56,7 +56,7 @@ int main (void)
 					turnCounter++;
 					displayGame (game);
 					getUserInput (game, turnCounter, player1, player2);
-					turnCounter++;					win=checkForWins (game);
+					win=checkForWins (game);
 				}while(win!=0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
