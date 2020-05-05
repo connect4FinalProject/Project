@@ -444,7 +444,7 @@ int score[maxName];
 
 
 	for(int i=0; i < maxName && fscanf(wins, "%c %d", names, score) != '\n'; i++){
-		scanf("%c", temp);
+		scanf("%c", &temp);
 		names[i] = temp;
 	}
 
