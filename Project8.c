@@ -50,6 +50,7 @@ int main (void)
 		{
 		case 1:
 			{
+				getPlayerNames (player1, player2);
 				do
 				{
 					displayGame (game);
