@@ -65,7 +65,7 @@ int main (void)
 					getUserInput (game, turnCounter);
 					turnCounter++;
 					win=checkForWins (game);
-				}while(win==0 && turnCounter!=maxTurns);
+				}while(win!=0 && turnCounter!=maxTurns);
 				if (win==1)
 				{
 					wins=fopen("record", "a");
@@ -169,7 +169,17 @@ int checkForWinH (char game[][size+1])
 				x++;
 				y = 0;		
 			}
+		}else
+		{
+			if(count >= 4){
+				x = 7;
+				win = 1;
+			}else{
+				count = 1;
+				y++;		
+			}
 		}
+		
 	}
 return win;
 }
@@ -213,6 +223,14 @@ int checkForWinV (char game[][size+1])
 				x++;
 				y = 0;		
 			}
+		}else{
+			if(count >= 4){
+				x = 7;
+				win = 1;
+			}else{
+				count = 1;
+				y++;	
+			}			
 		}
 	}
 return win;
@@ -261,7 +279,15 @@ int checkForWinDDownRight (char game[][size+1])
 				x = 0;
 				count = 1;
 			}
-
+		}else{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y++;
+				x++;
+			}			
 		}
 	}
 return win;
@@ -311,6 +337,15 @@ int checkForWinDUpRight (char game[][size+1])
 				count = 1;
 			}
 
+		}else{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y++;
+				x--;
+			}			
 		}
 	}
 return win;
@@ -359,7 +394,15 @@ int checkForWinDDownLeft (char game[][size+1])
 				x = 0;
 				count = 1;
 			}
-
+		}else{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y--;
+				x++;
+			}			
 		}
 	}
 return win;
@@ -408,7 +451,15 @@ int checkForWinDUpLeft (char game[][size+1])
 				x = 6;
 				count = 1;
 			}
-
+		}else{
+			if(count >= 4){
+				i = 4;
+				win = 1;
+			}else{
+				count = 1;
+				y--;
+				x--;
+			}			
 		}
 	}
 return win;
@@ -471,7 +522,7 @@ void recordWin (FILE* wins, char winnerName[])
 //Maddison
 //This function saves the player's names and corresponding scores to the scores.txt file. It stores only the top ten scores and is sorted by highest order.
 int max = 20, score[11][2], array[max], i, j, swap, n;
-char name, maxName = 50; //what is going on with the maco here?
+char name/**, maxName = 50**/; //what is going on with the maco here?
 
 	//Saving win to file:
 	for(int n = 0; n < 10 ; n++){
