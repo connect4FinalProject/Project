@@ -501,11 +501,11 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 	int position, temp = turnTracker(turnCounter);
 	turnTracker(turnCounter);
 	if(temp == 0){
-	printf("%s - Enter your move: \n", player2);
+	printf("%s - Enter your move: ", player2);
 	scanf("%d", &position);
 	}
 	else if(temp == 1){
-	printf("%s - Enter your move: \n", player1);
+	printf("%s - Enter your move: ", player1);
 	scanf("%d", &position);
 	}
 	updateArray(game, position, turnCounter);
