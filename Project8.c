@@ -431,6 +431,7 @@ void displayWins (FILE* wins)
 char names[maxName], temp;
 int score[maxName];
 
+
 	for(int i=0; i < maxName && fscanf("") != '\n'; i++){
 		scanf("%c", temp);
 		names[i] = temp;
@@ -487,7 +488,12 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 //Maddison
 	int position;
 
+<<<<<<< HEAD
+turnTracker(turnCounter);
+	printf("%c - Enter your move: ", playerName);
+=======
 	printf("%s - Enter your move: ", playerName);
+>>>>>>> ecb1c64dc2050fe8b512d2e274eef65e9fa4667d
 	scanf("%d", &position);
 
 	updateArray(game, position, turnCounter);
