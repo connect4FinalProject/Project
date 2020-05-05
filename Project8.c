@@ -530,7 +530,10 @@ void updateArray (char game[][size+1], int x, int turnCounter)
 	}
 	else
 	{
-		xo='O';
+		if(xoCode==1)
+		{
+			xo='O';
+		}
 	}
 	game[y][x]=xo;
 }
@@ -578,7 +581,7 @@ void getstr(int max, char str[])
 	do{
 		str[i] = getchar();
 		i++;
-	}while(i<max && str[i - 1] != '\n');
+	while(i<max && str[i - 1] != '\n');
 	str[i - 1] = '\0';
 
 }
