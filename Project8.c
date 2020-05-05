@@ -443,8 +443,8 @@ char names[maxName], temp;
 int score[maxName];
 
 
-	for(int i=0; i < maxName && fscanf(wins, "%c %d", &names, &score) != '\n'; i++){
-		scanf("%c", temp);
+	for(int i=0; i < maxName && fscanf(wins, "%c %d", names, score) != '\n'; i++){
+		scanf("%c", &temp);
 		names[i] = temp;
 	}
 
@@ -498,14 +498,14 @@ char name, mName = 50;
 void getUserInput (char game[][size+1], int turnCounter, char player1[], char player2[])
 {
 //Maddison
-	int position, temp = turnTracker;
+	int position, temp = turnTracker(turnCounter);
 	turnTracker(turnCounter);
 	if(temp == 0){
-	printf("%s - Enter your move: ", player2[]);
+	printf("%s - Enter your move: \n", player2);
 	scanf("%d", &position);
 	}
 	else if(temp == 1){
-	printf("%s - Enter your move: ", player1[]);
+	printf("%s - Enter your move: \n", player1);
 	scanf("%d", &position);
 	}
 	updateArray(game, position, turnCounter);
