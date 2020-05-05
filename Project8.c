@@ -427,8 +427,13 @@ return win;
 void displayWins (FILE* wins)
 {
 //Maddison
-char names[11];
-int score[11];
+char names[maxName], temp;
+int score[maxName];
+
+	for(int i=0; i < maxName && fscanf("") != '\n'; i++){
+		scanf("%c", temp);
+		names[i] = temp;
+	}
 
 	for(int a = 0; a < 11; a++){
 	fscanf(wins, "%c %d", &names[11], &score[11]);
