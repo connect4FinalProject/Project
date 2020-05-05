@@ -14,10 +14,8 @@ int getMenuChoice (void);
 void displayGame (char game[][size+1]);
 int checkForWinH (char game[][size+1]);
 int checkForWinV (char game[][size+1]);
-int checkForWinDDownRight (char game[][size+1]);
-int checkForWinDUpRight (char game[][size+1]);
-int checkForWinDDownLeft (char game[][size+1]);
-int checkForWinDUpLeft (char game[][size+1]);
+int checkForWinD1 (char game[][size+1]);
+//int checkForWinD2 (char game[][size+1]);
 int checkForWins (char game[][size+1]);
 void displayWins (FILE* wins);
 int turnTracker (int turnCounter);
@@ -131,6 +129,8 @@ int checkForWins(char game[][size+1]){
 		win = 1;
 	}else if(checkForWinV(game) == 1){
 		win = 1;
+	}else if(checkForWinD1(game) == 1){
+		win = 1;
 	}
 return win;
 }
@@ -198,6 +198,47 @@ int checkForWinV (char game[][size+1])
 		}else{
 			//printf("e\n");
 			y++;
+			combo = 1;
+		}
+	}
+	if (combo >= 4){
+		//printf("f\n");
+		win = 1;
+	}else{
+		//printf("g\n");
+		win = 0;
+	}
+	//printf("%d\n",win);
+	return win;
+}
+
+int checkForWinD1 (char game[][size+1])
+{
+//Esham
+// 1 = win 0 = no win
+	int combo = 1,x = 0,y = 0,count = 0,win = 0,i = 0,j = 0;
+
+	while(y != 7){
+		//printf("a\n");
+		if(game[y][x] != ' ' && game[y+1][x+1+i] == game[y][x+i]){
+			//printf("b\n");
+			combo++;
+			x++;
+			y++;
+			if(combo >= 4){
+				//printf("c\n");
+				y = 7;
+			}
+		}else if(x == 7){
+			//printf("d\n");
+			combo = 1;
+			i++;
+			j++;
+			y = 0;
+			x = 0;
+		}else{
+			//printf("e\n");
+			x++;
 			combo = 1;
 		}
 	}
