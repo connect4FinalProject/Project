@@ -444,7 +444,7 @@ int score[maxName];
 
 
 	for(int i=0; i < maxName && fscanf(wins, "%c %d", &names, &score) != '\n'; i++){
-		scanf("%c", temp);
+		scanf("%c", &temp);
 		names[i] = temp;
 	}
 
@@ -501,11 +501,11 @@ void getUserInput (char game[][size+1], int turnCounter, char player1[], char pl
 	int position, temp = turnTracker;
 	turnTracker(turnCounter);
 	if(temp == 0){
-	printf("%s - Enter your move: ", player2[]);
+	printf("%s - Enter your move: ", player2);
 	scanf("%d", &position);
 	}
 	else if(temp == 1){
-	printf("%s - Enter your move: ", player1[]);
+	printf("%s - Enter your move: ", player1);
 	scanf("%d", &position);
 	}
 	updateArray(game, position, turnCounter);
