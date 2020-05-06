@@ -62,7 +62,7 @@ int main (void)
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
-					printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ");
+					printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
 				}else
 				{
 					if (turnCounter>=maxTurns)
