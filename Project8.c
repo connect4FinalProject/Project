@@ -35,6 +35,7 @@ int main (void)
 	int turnCounter=-1, menuChoice;
 	int playerTemp;
 	FILE *wins;
+	_BOOL gamePlayed=0;
 	menuChoice=getMenuChoice();
 	do
 	{
@@ -49,7 +50,10 @@ int main (void)
 						game [i] [index]=' ';
 					}
 				}
-				getPlayerNames (player1, player2);
+				if (gamePlayed==0)
+				{
+					getPlayerNames (player1, player2);
+				}
 				do
 				{
 					turnCounter++;
@@ -78,6 +82,7 @@ int main (void)
 							scanf("%d", &menuChoice);
 					}
 				}
+				gamePlayed=1;
 				break;
 			}
 		case 2:
