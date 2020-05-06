@@ -35,7 +35,7 @@ int main (void)
 	int turnCounter=-1, menuChoice;
 	int playerTemp;
 	FILE *wins;
-	bool gamePlayed=0;
+	_Bool gamePlayed=0;
 	menuChoice=getMenuChoice();
 	do
 	{
