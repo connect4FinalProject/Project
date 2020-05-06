@@ -63,6 +63,10 @@ int main (void)
 				if (win==1)
 				{
 					wins=fopen("scores.txt", "a");
+					if(wins==NULL)
+					{
+						break;
+					}
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
