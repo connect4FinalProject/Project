@@ -72,7 +72,7 @@ int main (void)
 					scanf("%d", &menuChoice);
 				}else
 				{
-					if (turnCounter>=maxTurns)
+					if (turnCounter%maxTurns==0)
 					{
 						printf("It's a tie! Try again...\nPlay again? 1 - yes: ");
 							scanf("%d", &menuChoice);
