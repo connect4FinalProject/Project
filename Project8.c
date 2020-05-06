@@ -33,6 +33,7 @@ int main (void)
 	char player1[maxName], player2[maxName], winner[maxName];
 	int win = 0;
 	int turnCounter=-1, menuChoice;
+	int playerTemp;
 	FILE *wins;
 	menuChoice=getMenuChoice();
 	do
@@ -62,7 +63,13 @@ int main (void)
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
-					printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
+					playerTemp = turnTracker(turnCounter);
+					if(playerTemp == 0){
+						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
+					}else if(playerTemp == 1){
+						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player2);
+					}
+					
 				}else
 				{
 					if (turnCounter>=maxTurns)
