@@ -62,7 +62,6 @@ int main (void)
 				}while(win!=1 && turnCounter!=maxTurns);
 				if (win==1)
 				{
-					turnCouner=-1;
 					wins=fopen("scores.txt", "a");
 					if(wins==NULL)
 					{
@@ -78,6 +77,7 @@ int main (void)
 						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player2);	
 					}
 					scanf("%d", &menuChoice);
+					turnCouner=-1;
 				}else
 				{
 					if (turnCounter%maxTurns==0)
