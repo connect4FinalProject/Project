@@ -78,20 +78,24 @@ int main (void)
 							scanf("%d", &menuChoice);
 					}
 				}
+				break;
 			}
 		case 2:
 			{
 				wins=fopen("record", "r");
 				displayWins(wins);
 				fclose(wins);
+				break;
 			}
 		case 0:
 			{
 				return 0;
+				break;
 			}
 		default:
 			{
 				printf("Please enter a valid option!\n");
+				break;
 			}
 		}
 	} while (menuChoice!=0);
