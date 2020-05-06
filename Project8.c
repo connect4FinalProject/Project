@@ -63,18 +63,18 @@ int main (void)
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
-					playerTemp = turnTracker(turnCounter);
 					if(playerTemp == 0){
 						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
 					}else if(playerTemp == 1){
 						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player2);
 					}
-					
+						scanf("%d", &menuChoice);
 				}else
 				{
 					if (turnCounter>=maxTurns)
 					{
 						printf("It's a tie! Try again...\nPlay again? 1 - yes: ");
+							scanf("%d", &menuChoice);
 					}
 				}
 			}
