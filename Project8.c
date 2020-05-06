@@ -63,11 +63,13 @@ int main (void)
 					fclose(wins);
 					displayGame (game);
 					printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
+						scanf("%d", &menuChoice);
 				}else
 				{
 					if (turnCounter>=maxTurns)
 					{
 						printf("It's a tie! Try again...\nPlay again? 1 - yes: ");
+							scanf("%d", &menuChoice);
 					}
 				}
 			}
