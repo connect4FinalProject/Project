@@ -63,12 +63,13 @@ int main (void)
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
+					playerTemp = turnTracker(turnCounter);
 					if(playerTemp == 0){
 						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player1);
 					}else if(playerTemp == 1){
-						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player2);
+						printf("\n%s YOU WON!! CONGRATS :D\n\nPlay again? 1 - yes: ",player2);	
 					}
-						scanf("%d", &menuChoice);
+					scanf("%d", &menuChoice);
 				}else
 				{
 					if (turnCounter>=maxTurns)
