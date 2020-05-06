@@ -62,6 +62,7 @@ int main (void)
 				}while(win!=1 && turnCounter!=maxTurns);
 				if (win==1)
 				{
+					turnCouner=-1;
 					wins=fopen("scores.txt", "a");
 					if(wins==NULL)
 					{
