@@ -5,7 +5,6 @@
 #include<stdio.h>
 #include<string.h>
 #define maxName 50
-#define record "scores.txt"
 #define maxTurns 49
 #define size 7
 
@@ -63,7 +62,7 @@ int main (void)
 				}while(win!=1 && turnCounter!=maxTurns);
 				if (win==1)
 				{
-					wins=fopen("record", "a");
+					wins=fopen("scores.txt", "a");
 					recordWin (wins, winner);
 					fclose(wins);
 					displayGame (game);
@@ -87,7 +86,7 @@ int main (void)
 			}
 		case 2:
 			{
-				wins=fopen("record", "r");
+				wins=fopen("scores.txt", "r");
 				displayWins(wins);
 				fclose(wins);
 				break;
